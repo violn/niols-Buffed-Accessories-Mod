@@ -153,7 +153,7 @@ namespace niolsBuffedAccessories
                 }
             }
 
-            //All code after this handles
+            //All code after this handles other modded item's tooltips
             if (Reference.upa != null)
             {
                 if (item.type == Reference.upa.ItemType("Vengeance"))
