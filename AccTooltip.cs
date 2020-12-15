@@ -5,13 +5,15 @@ using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-
+//Handle tooltips related things
 namespace niolsBuffedAccessories
 {
     public class AccTooltips : GlobalItem
     {
+        //The Terraria hook that allows modification of item tooltips
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
+            //Most code similar to this is changing the tooltip of the accessory to match their new properties
             if (Reference.beeItems.Contains(item.type))
             {
                 foreach (var line1 in tooltips.Where(line1 => line1.mod == "Terraria" && line1.Name == "Tooltip0"))
@@ -151,6 +153,7 @@ namespace niolsBuffedAccessories
                 }
             }
 
+            //All code after this handles
             if (Reference.upa != null)
             {
                 if (item.type == Reference.upa.ItemType("Vengeance"))
@@ -188,7 +191,8 @@ namespace niolsBuffedAccessories
                         else tooltips[tooltips.IndexOf(line1)].text += "\nEnable autoswing for all melee weapons\nKilling an enemy enhances your melee abilities";
                     }
                 }
-
+            
+                //All code after this will be changing the tooltip of other mod accessories
                 if (item.type == Reference.upa.ItemType("VortexScope"))
                 {
                     foreach (var line1 in tooltips.Where(line1 => tooltips.IndexOf(line1) == tooltips.Count - 1))
