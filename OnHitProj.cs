@@ -6,18 +6,22 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
+//Handles actions done when hitting an enemy with a projectile
 public class OnHitProj : GlobalProjectile
 {
     private static readonly Random rand = new Random();
 
+    //Terraria hook that runs when hitting an enemy with a projectile
     public override void ModifyHitNPC(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
     {
+        //Handles things done when player has the sniper or ranger scope equipped
         if (proj.ranged && (Reference.equippedRScope || Reference.equippedSScope))
         {
             Reference.targetPosition = new Vector2(target.position.X, target.position.Y);
             damage = CalcDamage(damage, proj);
         }
-
+        
+        //Handles things done if the player has the celestial emblem equipped
         if (proj.magic && (Reference.equippedCeleE || Reference.equippedSorcE))
         {
             Reference.counter = 0;
@@ -55,7 +59,8 @@ public class OnHitProj : GlobalProjectile
                 damage = (int)(damage * (1 + (Reference.currentOnHitBoost / 2)));
             }
         }
-
+    
+        //Handles things done if the player has a bee or star accessory equipped
         if (proj.type != ProjectileID.HallowStar &&
             proj.type != ProjectileID.GiantBee &&
             proj.type != ProjectileID.Bee &&
@@ -161,6 +166,7 @@ public class OnHitProj : GlobalProjectile
         }
     }
 
+    //Calculates the damage of a ranged projectile based on the distance between the player and the target NPC
     public static int CalcDamage(int damage, Projectile proj)
     {
         double distance;
@@ -215,17 +221,20 @@ public class OnHitProj : GlobalProjectile
         return damage;
     }
 
+    //Gets the distance of the target from the player using the distance formula
     public static float CalcDistance(Vector2 player, Vector2 target)
     {
         return (float)Math.Sqrt(Math.Pow((target.X - player.X), 2) + Math.Pow((target.Y - player.Y), 2));
     }
 
+    //Calculates the amount of stacks gained from hitting and enemy with a magic attack
     public static double CalcStacks(int use)
     {
         double useBoost = (double)(use * ((277m / 60m) / 1500m));
         return Math.Round(useBoost, 2, MidpointRounding.AwayFromZero);
     }
 
+    //Calculate the chance of bees and stars spawning based of the use time of an item
     public static int CalcChance(int time)
     {
         if (time > 60)
@@ -242,10 +251,14 @@ public class OnHitProj : GlobalProjectile
     }
 }
 
+//Handles actions done when hitting an enemy with a melee projectile
 public class OnHitProjMelee : ModPlayer
 {
+
+    //Hook that runs when a player hits a NPC with a melee projectile
     public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
     {
+        //Gives a different version of the Beserker Rage buff depending on the accessory equipped
         if (Reference.equippedFGaunt)
         {
             Reference.buffCheck1 = 1;
