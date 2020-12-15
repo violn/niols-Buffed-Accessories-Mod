@@ -4,12 +4,15 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
+//Handles what happens when the player hits a NPC with a melee weapon
 public class OnHitMelee : GlobalItem
 {
     private static readonly Random rand = new Random();
 
+    //Terraria hook that runs when hitting an enemy with a melee attack 
     public override void ModifyHitNPC(Item item, Player player, NPC target, ref int damage, ref float knockBack, ref bool crit)
     {
+        //Adds Beserker Rage to player when the damage is higher than the curretn hp of the enemy depending on the accessory equipped
         if (Reference.equippedFGaunt)
         {
             Reference.buffCheck1 = 1;
@@ -31,6 +34,7 @@ public class OnHitMelee : GlobalItem
             player.AddBuff(ModContent.BuffType<niolsBuffedAccessories.Buffs.BeserkerRage>(), 340, true);
         }
 
+        //Spawns either bees or stars with twice the chance as projectiles
         for (int x = 0; x < 2; x++)
         {
             if (Reference.equippedPlague)
@@ -81,6 +85,7 @@ public class OnHitMelee : GlobalItem
         }
     }
 
+    //Calculate chance of something based on the use time of the item
     public static int CalcChance(int time)
     {
         if (time > 60)
