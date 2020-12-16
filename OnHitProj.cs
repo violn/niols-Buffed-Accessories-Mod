@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using niolsBuffedAccessories;
 using References;
 using System;
@@ -6,31 +6,30 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-//Handles actions done when hitting an enemy with a projectile
+//Handles stuff when hitting a NPC with a projectile
 public class OnHitProj : GlobalProjectile
 {
     private static readonly Random rand = new Random();
 
-    //Terraria hook that runs when hitting an enemy with a projectile
+    //Terraria hook that runs when hitting an NPC with projectile
     public override void ModifyHitNPC(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
     {
-        //Handles things done when player has the sniper or ranger scope equipped
+        //Increases ranged damage based on how far the player is from the NPC
         if (proj.ranged && (Reference.equippedRScope || Reference.equippedSScope))
         {
             Reference.targetPosition = new Vector2(target.position.X, target.position.Y);
             damage = CalcDamage(damage, proj);
         }
-        
-        //Handles things done if the player has the celestial emblem equipped
+
+        //Increase magic damage when continously damaging a NPC
         if (proj.magic && (Reference.equippedCeleE || Reference.equippedSorcE))
         {
             Reference.counter = 0;
             double stacksGained;
-            if(Reference.itemUsed != null)
+            if (Reference.itemUsed != null)
             {
                 stacksGained = CalcStacks(Reference.itemUsed.useTime);
             }
-            
             else stacksGained = CalcStacks(25);
 
             Reference.currentOnHitBoost += stacksGained - Reference.depleteBoost;
@@ -59,18 +58,10 @@ public class OnHitProj : GlobalProjectile
                 damage = (int)(damage * (1 + (Reference.currentOnHitBoost / 2)));
             }
         }
-    
-        //Handles things done if the player has a bee or star accessory equipped
-        if (proj.type != ProjectileID.HallowStar &&
-            proj.type != ProjectileID.GiantBee &&
-            proj.type != ProjectileID.Bee &&
-            proj.type != ProjectileID.SporeGas &&
-            proj.type != ProjectileID.SporeGas2 &&
-            proj.type != ProjectileID.SporeGas3 &&
-            proj.type != ProjectileID.SporeTrap &&
-            proj.type != ProjectileID.SporeTrap2 &&
-            proj.type != Reference.cal.ProjectileType("PlaguenadeBee") &&
-            proj.type != Reference.cal.ProjectileType("PlagueSeeker"))
+
+        //Chance to spawn plague bees on hit
+        if (Reference.cal != null && proj.type != Reference.cal.ProjectileType("PlaguenadeBee") &&
+            Reference.cal != null && proj.type != Reference.cal.ProjectileType("PlagueSeeker"))
         {
             if (Reference.itemUsed != null)
             {
@@ -82,6 +73,32 @@ public class OnHitProj : GlobalProjectile
                         Reference.equippedBee = false;
                     }
                 }
+                else
+                {
+                    if (Reference.equippedPlague)
+                    {
+                        if (rand.Next(100) < CalcChance(20))
+                        {
+                            ProjectileHandler.CreatePlagueBees(target, damage);
+                            Reference.equippedBee = false;
+                        }
+                    }
+                }
+            }
+        }
+
+        //Chance to spawn bees and star on hit
+        if (proj.type != ProjectileID.HallowStar &&
+            proj.type != ProjectileID.GiantBee &&
+            proj.type != ProjectileID.Bee &&
+            proj.type != ProjectileID.SporeGas &&
+            proj.type != ProjectileID.SporeGas2 &&
+            proj.type != ProjectileID.SporeGas3 &&
+            proj.type != ProjectileID.SporeTrap &&
+            proj.type != ProjectileID.SporeTrap2)
+        {
+            if (Reference.itemUsed != null)
+            {
                 if (Reference.equippedBee && Reference.equippedStar)
                 {
                     if (rand.Next(100) < CalcChance(Reference.itemUsed.useTime))
@@ -117,17 +134,8 @@ public class OnHitProj : GlobalProjectile
                     }
                 }
             }
-
             else
             {
-                if (Reference.equippedPlague)
-                {
-                    if (rand.Next(100) < CalcChance(20))
-                    {
-                        ProjectileHandler.CreatePlagueBees(target, damage);
-                        Reference.equippedBee = false;
-                    }
-                }
                 if (Reference.equippedBee && Reference.equippedStar)
                 {
                     if (rand.Next(100) < CalcChance(20))
@@ -166,7 +174,7 @@ public class OnHitProj : GlobalProjectile
         }
     }
 
-    //Calculates the damage of a ranged projectile based on the distance between the player and the target NPC
+    //Calculates damage based on distance the player is from the NPC
     public static int CalcDamage(int damage, Projectile proj)
     {
         double distance;
@@ -221,20 +229,20 @@ public class OnHitProj : GlobalProjectile
         return damage;
     }
 
-    //Gets the distance of the target from the player using the distance formula
+    //Calculates distance using the distance formula
     public static float CalcDistance(Vector2 player, Vector2 target)
     {
         return (float)Math.Sqrt(Math.Pow((target.X - player.X), 2) + Math.Pow((target.Y - player.Y), 2));
     }
 
-    //Calculates the amount of stacks gained from hitting and enemy with a magic attack
+    //Calculates stacks gained depending on the the item use time
     public static double CalcStacks(int use)
     {
         double useBoost = (double)(use * ((277m / 60m) / 1500m));
         return Math.Round(useBoost, 2, MidpointRounding.AwayFromZero);
     }
 
-    //Calculate the chance of bees and stars spawning based of the use time of an item
+    //Calculates the chance to spawn a projectile based on item use time
     public static int CalcChance(int time)
     {
         if (time > 60)
@@ -251,14 +259,13 @@ public class OnHitProj : GlobalProjectile
     }
 }
 
-//Handles actions done when hitting an enemy with a melee projectile
+//Handles when the player hits a NPC with a melee projectile
 public class OnHitProjMelee : ModPlayer
 {
-
-    //Hook that runs when a player hits a NPC with a melee projectile
+    //Tmodloader hook that runs when hitting an NPC
     public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
     {
-        //Gives a different version of the Beserker Rage buff depending on the accessory equipped
+        //Gives Beserker Rage buff when killing an NPC with a melee projectile
         if (Reference.equippedFGaunt)
         {
             Reference.buffCheck1 = 1;

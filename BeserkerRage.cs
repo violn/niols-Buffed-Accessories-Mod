@@ -1,11 +1,13 @@
-﻿using References;
+using References;
 using Terraria;
 using Terraria.ModLoader;
 
 namespace niolsBuffedAccessories.Buffs
 {
+    //Handles things related to buffs added through mods
     public class BeserkerRage : ModBuff
     {
+        //Set the default values for the buff
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Beserker Rage");
@@ -15,6 +17,7 @@ namespace niolsBuffedAccessories.Buffs
             canBeCleared = false;
         }
 
+        //Set the effects of the buff
         public override void Update(Player player, ref int buffIndex)
         {
             if (Reference.buffCheck1 == 1)
@@ -34,6 +37,7 @@ namespace niolsBuffedAccessories.Buffs
             }
         }
 
+        //Handles what happens when the buff is reapplied
         public override bool ReApply(Player player, int time, int buffIndex)
         {
             if (Reference.buffCheck1 == 1)

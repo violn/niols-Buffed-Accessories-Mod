@@ -1,4 +1,4 @@
-﻿using References;
+using References;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -79,8 +79,8 @@ namespace niolsBuffedAccessories
 
             if (item.type == ItemID.WarriorEmblem)
             {
-                player.maxRunSpeed += 0.10f;
-                player.moveSpeed += 0.10f;
+                player.maxRunSpeed += 0.27f;
+                player.moveSpeed += .10f;
                 player.meleeCrit += 8;
                 Reference.equippedWarE = true;
             }
@@ -100,6 +100,49 @@ namespace niolsBuffedAccessories
                 Reference.equippedYoyoBag = true;
             }
 
+            if (item.type == ItemID.MonkBelt)
+            {
+                player.maxMinions += 1;
+                player.meleeDamage += .07f;
+                player.meleeSpeed += .07f;
+                player.minionDamage += .10f;
+                player.meleeCrit += 8;
+                player.maxRunSpeed += 0.27f;
+                player.moveSpeed += .10f;
+            }
+
+            if (item.type == ItemID.ApprenticeScarf)
+            {
+                player.maxMinions += 1;
+                player.magicDamage += .08f;
+                player.manaCost *= 95f;
+                player.minionDamage += .10f;
+                player.magicCrit += 8;
+                player.maxRunSpeed += 0.27f;
+                player.moveSpeed += .07f;
+            }
+
+            if (item.type == ItemID.SquireShield)
+            {
+                player.maxMinions += 1;
+                player.meleeDamage += .03f;
+                player.minionDamage += .10f;
+                player.meleeCrit += 7;
+                player.maxRunSpeed += 0.27f;
+                player.moveSpeed += .10f;
+                player.lifeRegen += 1;
+            }
+
+            if (item.type == ItemID.HuntressBuckler)
+            {
+                player.maxMinions += 1;
+                player.rangedDamage += .08f;
+                player.minionDamage += .10f;
+                player.rangedCrit += 7;
+                player.maxRunSpeed += 0.27f;
+                player.moveSpeed += .07f;
+                Reference.equippedOWABuckler = true;
+            }
             //Every piece of code here handles other modded items 
             if (Reference.upa != null)
             {
@@ -185,7 +228,7 @@ namespace niolsBuffedAccessories
 
                 if (item.type == ItemID.MechanicalGlove)
                 {
-                    player.maxRunSpeed += 0.17f;
+                    player.maxRunSpeed += 0.47f;
                     player.moveSpeed += 0.17f;
                     player.meleeCrit += 12;
                     Reference.equippedMechGlove = true;
@@ -193,7 +236,7 @@ namespace niolsBuffedAccessories
 
                 if (item.type == ItemID.FireGauntlet)
                 {
-                    player.maxRunSpeed += 0.20f;
+                    player.maxRunSpeed += 0.54f;
                     player.moveSpeed += 0.20f;
                     player.meleeCrit += 16;
                     Reference.equippedFGaunt = true;
@@ -203,7 +246,7 @@ namespace niolsBuffedAccessories
             {
                 if (item.type == ItemID.MechanicalGlove)
                 {
-                    player.maxRunSpeed += 0.17f;
+                    player.maxRunSpeed += 0.47f;
                     player.moveSpeed += 0.17f;
                     player.meleeCrit += 12;
                     Reference.equippedMechGlove = true;
@@ -211,9 +254,10 @@ namespace niolsBuffedAccessories
 
                 if (item.type == ItemID.FireGauntlet)
                 {
-                    player.maxRunSpeed += 0.20f;
+                    player.maxRunSpeed += 0.54f;
                     player.meleeDamage += 0.04f;
                     player.meleeSpeed += 0.04f;
+                    player.maxRunSpeed += 0.54f;
                     player.moveSpeed += 0.20f;
                     player.meleeCrit += 16;
                     Reference.equippedFGaunt = true;
