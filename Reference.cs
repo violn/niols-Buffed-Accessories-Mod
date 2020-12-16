@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 
 namespace References
 {
+    //Global variables that are called throughout classes
     public class Reference
     {
         public static Mod cal = ModLoader.GetMod("CalamityMod");
