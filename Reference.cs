@@ -46,6 +46,10 @@ namespace References
         public static bool blockStars = false;
         public static bool createDelay = true;
         public static bool equippedYoyoBag = false;
+        public static bool equippedOWABelt = false;
+        public static bool equippedOWAScarf = false;
+        public static bool equippedOWAShield= false;
+        public static bool equippedOWABuckler = false;
         public static ArrayList yoyoProj = new ArrayList();
         public static ArrayList countweightBlackList = new ArrayList();
         public static ArrayList beeItems = new ArrayList();
