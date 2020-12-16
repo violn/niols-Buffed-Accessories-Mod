@@ -1,10 +1,11 @@
-﻿using References;
+using References;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+
 //Handle tooltips related things
 namespace niolsBuffedAccessories
 {
@@ -117,6 +118,74 @@ namespace niolsBuffedAccessories
                 }
             }
 
+            if (item.type == ItemID.MonkBelt)
+            {
+                foreach (var line13 in tooltips)
+                {
+                    if (line13.Name == "Tooltip0")
+                    {
+                        line13.text = "Increase your max number of sentries and minions by 1";
+                    }
+
+                    if (line13.Name == "Tooltip1")
+                    {
+                        line13.text = "Increases minion damage by 20%\n7% increased melee speed and damage" +
+                        "\n7% increased melee critical strike chance\n10% increased movement speed\nIncreased health regeneration";
+                    }
+                }
+            }
+
+            if (item.type == ItemID.SquireShield)
+            {
+                foreach (var line13 in tooltips)
+                {
+                    if (line13.Name == "Tooltip0")
+                    {
+                        line13.text = "Increase your max number of sentries and minions by 1";
+                    }
+
+                    if (line13.Name == "Tooltip1")
+                    {
+                        line13.text = "Increases minion damage by 20%\n3% increased melee damage" +
+                        "\n8% increased melee critical strike chance\n10% increased movement speed";
+                    }
+                }
+            }
+
+            if (item.type == ItemID.ApprenticeScarf)
+            {
+                foreach (var line13 in tooltips)
+                {
+                    if (line13.Name == "Tooltip0")
+                    {
+                        line13.text = "Increase your max number of sentries and minions by 1";
+                    }
+
+                    if (line13.Name == "Tooltip1")
+                    {
+                        line13.text = "Increases minion damage by 20%\n8% increased magic damage and critical strike chance" +
+                        "\n5% reduce mana usage\n7% increased movement speed";
+                    }
+                }
+            }
+
+            if (item.type == ItemID.HuntressBuckler)
+            {
+                foreach (var line13 in tooltips)
+                {
+                    if(line13.Name == "Tooltip0")
+                    {
+                        line13.text = "Increase your max number of sentries and minions by 1";
+                    }
+
+                    if (line13.Name == "Tooltip1")
+                    {
+                        line13.text = "Increases minion damage by 20%\n8% increased ranged damage" +
+                        "\n7% ranged critical strike chance\n7% increased movement speed\n3% chance to not consume ammo";
+                    }
+                }
+            }
+
             if (item.type == ItemID.MechanicalGlove)
             {
                 foreach (TooltipLine line12 in tooltips)
@@ -140,8 +209,8 @@ namespace niolsBuffedAccessories
                 {
                     if (Reference.cal == null && line12.Name == "Tooltip0")
                     {
-                        
-                        line12.text = "Increases melee knockback and melee attacks inflict fire damage " +
+
+                        line12.text = "Increases melee knockback and melee attacks inflict fire damage" +
                             "\n16% increased melee damage, speed, and critical strike chance\n20% increased movement speed" +
                             "\nEnables auto swing for melee weapons\nKilling an enemy enhances your melee abilities";
                     }
@@ -183,7 +252,7 @@ namespace niolsBuffedAccessories
                             tooltips[tooltips.IndexOf(line1) - 1].text += "\nEnable autoswing for melee weapons\nKilling an enemy enhances your melee abilities";
                         }
 
-                        else if(line1.Name.Contains("Expert"))
+                        else if (line1.Name.Contains("Expert"))
                         {
                             tooltips[tooltips.IndexOf(line1) - 2].text += "\nEnable autoswing for all melee weapons\nKilling an enemy enhances your melee abilities";
                         }
@@ -191,8 +260,7 @@ namespace niolsBuffedAccessories
                         else tooltips[tooltips.IndexOf(line1)].text += "\nEnable autoswing for all melee weapons\nKilling an enemy enhances your melee abilities";
                     }
                 }
-            
-                //All code after this will be changing the tooltip of other mod accessories
+
                 if (item.type == Reference.upa.ItemType("VortexScope"))
                 {
                     foreach (var line1 in tooltips.Where(line1 => tooltips.IndexOf(line1) == tooltips.Count - 1))
