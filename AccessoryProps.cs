@@ -5,10 +5,13 @@ using Terraria.ModLoader;
 
 namespace niolsBuffedAccessories
 {
+    //Handles what accessories actually do
     public class AccessoryProps : GlobalItem
     {
+        //Hook that runs when ann accessory is equipped
         public override void UpdateAccessory(Item item, Player player, bool hideVisual)
         {
+            //Every piece of code similar to this is modifying what accessories do
             if (Reference.beeItems.Contains(item.type))
             {
                 Reference.equippedBee = true;
@@ -97,6 +100,7 @@ namespace niolsBuffedAccessories
                 Reference.equippedYoyoBag = true;
             }
 
+            //Every piece of code here handles other modded items 
             if (Reference.upa != null)
             {
                 if (item.type == Reference.upa.ItemType("Vengeance"))
@@ -262,6 +266,8 @@ namespace niolsBuffedAccessories
                 }
             }
 
+            //An internal counter becuase I was to lazy to actually learn frame counting
+            //Around 277 and 278  is a second
             Reference.counter++;
 
             Reference.counter2++;

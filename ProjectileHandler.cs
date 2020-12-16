@@ -7,10 +7,13 @@ using Terraria.ModLoader;
 
 namespace niolsBuffedAccessories
 {
+    //Handles projectile relate stuff
     public class ProjectileHandler : GlobalProjectile
     {
         public static readonly Random rand = new Random();
         
+        //Hook that sets the default values of projectiles
+        //This is used more to collect yoyo prjectiles
         public override void SetDefaults (Projectile proj)
         {
             bool dupe = false;
@@ -45,6 +48,7 @@ namespace niolsBuffedAccessories
             }
         }
 
+        //Creates regular bees when called
         public static void CreateWeakBees(NPC target, int damage)
         {
             if (Reference.beesSpawned < 25)
@@ -65,7 +69,8 @@ namespace niolsBuffedAccessories
                 Reference.secondsPassed = 0;
             }
         }
-
+        
+        //Creates stronge bees when called
         public static void CreateStrongBees(NPC target, int damage)
         {
             if (Reference.beesSpawned < 25)
@@ -87,6 +92,7 @@ namespace niolsBuffedAccessories
             }
         }
 
+        //Creates plague bees when called
         public static void CreatePlagueBees(NPC target, int damage)
         {
             if (Reference.beesSpawned < 25)
@@ -108,6 +114,7 @@ namespace niolsBuffedAccessories
             }
         }
 
+        //Creates stars that spawns from the sky
         public static void CreateStars(NPC target, int damage)
         {
             Player player = Main.LocalPlayer;
@@ -133,6 +140,7 @@ namespace niolsBuffedAccessories
             }
         }
 
+        //Creates a clone of the projectile shot
         public static void CreateDuplicate(int type, Vector2 position, float speedX, float speedY, int damage, float knockBack)
         {
             float projOffsetSpeedY = 0;

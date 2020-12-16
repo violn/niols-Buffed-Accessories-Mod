@@ -5,11 +5,13 @@ namespace niolsBuffedAccessories
 {
     public class BuffedAccessories : Mod
     {
+        //Does stuff on loading the game
         public override void Load()
         {
             AddItems();
         }
 
+        //Add certain items with similar properties
         public static void AddItems()
         {
             Reference.beeItems.Add(1249);
@@ -54,6 +56,7 @@ namespace niolsBuffedAccessories
         }
     }
 
+    //Reset variables to be rechecked
     public class Reset : ModPlayer
     {
         public override void ResetEffects()
