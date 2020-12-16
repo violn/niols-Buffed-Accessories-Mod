@@ -77,9 +77,6 @@ namespace niolsBuffedAccessories
             Reference.equippedRegBand = false;
             Reference.equippedYoyoBag = false;
             Reference.celeRegen = 15;
-            Reference.equippedOWABelt = false;
-            Reference.equippedOWAScarf = false;
-            Reference.equippedOWAShield = false;
             Reference.equippedOWABuckler = false;
         }
     }
