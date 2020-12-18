@@ -21,9 +21,10 @@ public class OnHitProj : GlobalProjectile
             damage = CalcDamage(damage, proj);
         }
 
-        //Increase magic damage when continously damaging a NPC
+        //Increase magic damage and mana regeneration when continously damaging a NPC
         if (proj.magic && (Reference.equippedCeleE || Reference.equippedSorcE))
         {
+            Reference.delayCounter = 0;
             Reference.counter = 0;
             double stacksGained;
             if (Reference.itemUsed != null)
@@ -48,10 +49,15 @@ public class OnHitProj : GlobalProjectile
             {
                 Reference.currentOnHitBoost = .01;
             }
-            if (Reference.equippedCeleE && !Reference.equippedSorcE)
+
+            if (Reference.equippedCeleE)
             {
                 damage = (int)(damage * (1 + Reference.currentOnHitBoost));
-                Reference.celeRegen = (int)(Reference.celeRegen + (1.5 * (Reference.currentOnHitBoost * 100)));
+              
+                if(Reference.celeRegen < 60)
+                {
+                    Reference.celeRegen = (int)(Reference.celeRegen + (2 * (Reference.currentOnHitBoost * 100)));
+                }
             }
             else
             {
@@ -73,15 +79,16 @@ public class OnHitProj : GlobalProjectile
                         Reference.equippedBee = false;
                     }
                 }
-                else
+            }
+
+            else
+            {
+                if (Reference.equippedPlague)
                 {
-                    if (Reference.equippedPlague)
+                    if (rand.Next(100) < CalcChance(20))
                     {
-                        if (rand.Next(100) < CalcChance(20))
-                        {
-                            ProjectileHandler.CreatePlagueBees(target, damage);
-                            Reference.equippedBee = false;
-                        }
+                        ProjectileHandler.CreatePlagueBees(target, damage);
+                        Reference.equippedBee = false;
                     }
                 }
             }
