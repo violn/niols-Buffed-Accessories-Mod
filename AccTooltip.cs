@@ -130,7 +130,7 @@ namespace niolsBuffedAccessories
                     if (line13.Name == "Tooltip1")
                     {
                         line13.text = "Increases minion damage by 20%\n7% increased melee speed and damage" +
-                        "\n7% increased melee critical strike chance\n10% increased movement speed\nIncreased health regeneration";
+                        "\n7% increased melee critical strike chance\n10% increased movement speed";
                     }
                 }
             }
@@ -147,7 +147,7 @@ namespace niolsBuffedAccessories
                     if (line13.Name == "Tooltip1")
                     {
                         line13.text = "Increases minion damage by 20%\n3% increased melee damage" +
-                        "\n8% increased melee critical strike chance\n10% increased movement speed";
+                        "\n8% increased melee critical strike chance\n10% increased movement speed\nIncreased health regeneration";
                     }
                 }
             }
