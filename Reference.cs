@@ -20,6 +20,7 @@ namespace References
         public static int counter = 0;
         public static int counter2 = 0;
         public static int counter3 = 0;
+        public static int delayCounter = 0;
         public static int secondsPassed = 0;
         public static int secondsPassed2 = 0;
         public static int celeRegen = 15;
@@ -44,7 +45,6 @@ namespace References
         public static bool equippedRegBand = false;
         public static bool blockBees = false;
         public static bool blockStars = false;
-        public static bool createDelay = true;
         public static bool equippedYoyoBag = false;
         public static bool equippedOWABuckler = false;
         public static ArrayList yoyoProj = new ArrayList();
