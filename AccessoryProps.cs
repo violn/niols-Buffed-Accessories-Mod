@@ -53,7 +53,7 @@ namespace niolsBuffedAccessories
             if (item.type == ItemID.CelestialEmblem)
             {
                 player.manaRegenBonus += Reference.celeRegen;
-                player.manaRegenDelayBonus += 10;
+                player.manaRegenDelayBonus += 5;
                 player.statManaMax2 += 100;
                 player.manaCost *= .72f;
                 Reference.equippedCeleE = true;
@@ -62,13 +62,13 @@ namespace niolsBuffedAccessories
             if (item.type == ItemID.MagicCuffs)
             {
                 player.manaRegenBonus += 33;
-                player.manaRegenDelayBonus = 10;
+                player.manaRegenDelayBonus += 1;
             }
 
             if (item.type == ItemID.CelestialCuffs)
             {
                 player.manaRegenBonus += 38;
-                player.manaRegenDelayBonus = 10;
+                player.manaRegenDelayBonus += 2;
             }
 
             if (item.type == ItemID.SummonerEmblem)
@@ -298,7 +298,6 @@ namespace niolsBuffedAccessories
                 if (item.type == Reference.ea.ItemType("NebulaEmblem"))
                 {
                     player.manaRegenBonus += Reference.celeRegen;
-                    player.manaRegenDelayBonus += 10;
                     player.statManaMax2 += 100;
                     player.manaCost *= .72f;
                     Reference.equippedCeleE = true;
@@ -310,7 +309,7 @@ namespace niolsBuffedAccessories
                 }
             }
 
-            //An internal counter becuase I was to lazy to actually learn frame counting
+            //An internal counter becuase I was too lazy to actually learn frame counting
             //Around 277 and 278  is a second
             Reference.counter++;
 
@@ -318,9 +317,23 @@ namespace niolsBuffedAccessories
 
             Reference.counter3++;
 
-            if (Reference.counter % 56 == 0 && Reference.depleteBoost < .31)
+            if (Reference.delayCounter < 1000)
             {
-                Reference.depleteBoost += .01;
+                Reference.delayCounter++;
+            }
+
+            if (Reference.counter % 56 == 0 && Reference.delayCounter > 554)
+            {
+                if(Reference.depleteBoost < .31)
+                {
+                    Reference.depleteBoost += .01;
+                }
+
+                if(Reference.celeRegen > 15)
+                {
+                    Reference.celeRegen -= 1;
+                }
+
                 Reference.counter = 0;
             }
 
