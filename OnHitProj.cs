@@ -66,7 +66,15 @@ public class OnHitProj : GlobalProjectile
         }
 
         //Chance to spawn plague bees on hit
-        if (Reference.cal != null && proj.type != Reference.cal.ProjectileType("PlaguenadeBee") &&
+        if (proj.type != ProjectileID.HallowStar &&
+            proj.type != ProjectileID.GiantBee &&
+            proj.type != ProjectileID.Bee &&
+            proj.type != ProjectileID.SporeGas &&
+            proj.type != ProjectileID.SporeGas2 &&
+            proj.type != ProjectileID.SporeGas3 &&
+            proj.type != ProjectileID.SporeTrap &&
+            proj.type != ProjectileID.SporeTrap2 &&
+            Reference.cal != null && proj.type != Reference.cal.ProjectileType("PlaguenadeBee") &&
             Reference.cal != null && proj.type != Reference.cal.ProjectileType("PlagueSeeker"))
         {
             if (Reference.itemUsed != null)
@@ -102,7 +110,9 @@ public class OnHitProj : GlobalProjectile
             proj.type != ProjectileID.SporeGas2 &&
             proj.type != ProjectileID.SporeGas3 &&
             proj.type != ProjectileID.SporeTrap &&
-            proj.type != ProjectileID.SporeTrap2)
+            proj.type != ProjectileID.SporeTrap2 &&
+            Reference.cal != null && proj.type != Reference.cal.ProjectileType("PlaguenadeBee") &&
+            Reference.cal != null && proj.type != Reference.cal.ProjectileType("PlagueSeeker"))
         {
             if (Reference.itemUsed != null)
             {
