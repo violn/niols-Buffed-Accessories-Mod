@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using niolsBuffedAccessories.Buffs;
 
 public class BuffPlayerHurt : GlobalNPC
 {
@@ -15,7 +16,7 @@ public class BuffPlayerHurt : GlobalNPC
         //Gives the player the enhanced mana regen on taking damage.
         if (AccessoryProperties.equippedStar)
         {
-            player.AddBuff(ModContent.BuffType<niolsBuffedAccessories.Buffs.EnhancedManaRegen>(), 480, true);
+            player.AddBuff(ModContent.BuffType<EnhancedManaRegen>(), 480, true);
         }
     }
 }
