@@ -1,71 +1,74 @@
-using References;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace niolsBuffedAccessories.Buffs
+public class BeserkerRage : ModBuff
 {
-    //Handles things related to buffs added through mods
-    public class BeserkerRage : ModBuff
-    {
-        //Set the default values for the buff
-        public override void SetDefaults()
-        {
-            DisplayName.SetDefault("Beserker Rage");
-            Description.SetDefault("Your melee abilities are increased");
-            Main.buffNoTimeDisplay[Type] = false;
-            Main.debuff[Type] = false;
-            canBeCleared = false;
-        }
+    /// <summary>
+    /// Determines the strength of the beserker rage buff.
+    /// Goes from 1 to 3 with 1 being the weakest and 3 being the strongest.
+    /// The strength is determined by the cetain melee accessories.
+    /// </summary>
+    public static int beserkerRageStrength = 0;
 
-        //Set the effects of the buff
-        public override void Update(Player player, ref int buffIndex)
+    public override void SetDefaults()
+    {
+        DisplayName.SetDefault("Beserker Rage");
+        Description.SetDefault("Your melee abilities are increased");
+        Main.buffNoTimeDisplay[Type] = false;
+        Main.debuff[Type] = false;
+        canBeCleared = false;
+    }
+
+    public override void Update(Player player, ref int buffIndex)
+    {
+        switch (beserkerRageStrength)
         {
-            if (Reference.buffCheck1 == 1)
-            {
+            case 1:
                 player.meleeCrit += 75;
                 player.meleeDamage += .30f;
-            }
-            else if (Reference.buffCheck2 == 1)
-            {
+                break;
+
+            case 2:
                 player.meleeCrit += 50;
                 player.meleeDamage += .15f;
-            }
-            else if (Reference.buffCheck3 == 1)
-            {
+                break;
+
+            case 3:
                 player.meleeCrit += 25;
                 player.meleeDamage += .8f;
-            }
+                break;
         }
+    }
 
-        //Handles what happens when the buff is reapplied
-        public override bool ReApply(Player player, int time, int buffIndex)
+    public override bool ReApply(Player player, int time, int buffIndex)
+    {
+        switch (beserkerRageStrength)
         {
-            if (Reference.buffCheck1 == 1)
-            {
+            case 1:
                 player.meleeCrit -= 75;
                 player.meleeDamage -= .30f;
 
                 player.meleeCrit += 75;
                 player.meleeDamage += .30f;
-            }
-            else if (Reference.buffCheck2 == 1)
-            {
+                break;
+
+            case 2:
                 player.meleeCrit -= 50;
                 player.meleeDamage -= .15f;
 
                 player.meleeCrit += 50;
                 player.meleeDamage += .15f;
-            }
-            else if (Reference.buffCheck3 == 1)
-            {
+                break;
+
+            case 3:
                 player.meleeCrit -= 25;
                 player.meleeDamage -= .8f;
 
                 player.meleeCrit += 25;
                 player.meleeDamage += .8f;
-            }
-
-            return false;
+                break;
         }
+
+        return false;
     }
 }
