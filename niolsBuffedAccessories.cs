@@ -1,82 +1,119 @@
-using References;
+//This mod was made by niol#1299 add me on discord if you have any questions.
+using System.Collections;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace niolsBuffedAccessories
 {
     public class BuffedAccessories : Mod
     {
-        //Does stuff on loading the game
+        public static Mod calamity = ModLoader.GetMod("CalamityMod");
+        public static Mod thorium = ModLoader.GetMod("ThoriumMod");
+        public static Mod elementsAwokened = ModLoader.GetMod("ElementsAwoken");
+        public static Mod upgradedAccessories = ModLoader.GetMod("UpgradedAccessories");
+        public static ArrayList hiveItems = new ArrayList();
+        public static ArrayList starItems = new ArrayList();
+        public static ArrayList beeItems = new ArrayList();
+        public static ArrayList countweightBlackList = new ArrayList();
+
+        //Creates hotkey for quick summon.
         public override void Load()
         {
+            ToggleSummon.toggleQuickSummon = base.RegisterHotKey("Quick Summon", "I");
             AddItems();
         }
 
-        //Add certain items with similar properties
+        //Add certain items with similar properties.
         public static void AddItems()
         {
-            Reference.beeItems.Add(1249);
-            Reference.beeItems.Add(1132);
-            Reference.beeItems.Add(1247);
-            Reference.beeItems.Add(1578);
-            Reference.beeItems.Add(3251);
+            beeItems.Add(1249);
+            beeItems.Add(1132);
+            beeItems.Add(1247);
+            beeItems.Add(1578);
+            beeItems.Add(3251);
 
-            Reference.starItems.Add(532);
-            Reference.starItems.Add(862);
-            Reference.starItems.Add(1247);
+            starItems.Add(532);
+            starItems.Add(862);
+            starItems.Add(1247);
 
-            Reference.hiveItems.Add(3333);
+            hiveItems.Add(3333);
 
-            Reference.countweightBlackList.Add(556);
-            Reference.countweightBlackList.Add(557);
-            Reference.countweightBlackList.Add(558);
-            Reference.countweightBlackList.Add(559);
-            Reference.countweightBlackList.Add(560);
-            Reference.countweightBlackList.Add(561);
-
-            Reference.blackListedItems.Add(1553);
-            Reference.blackListedItems.Add(2797);
-            Reference.blackListedItems.Add(2624);
-            Reference.blackListedItems.Add(679);
-            Reference.blackListedItems.Add(534);
-            Reference.blackListedItems.Add(1929);
-            Reference.blackListedItems.Add(1229);
-            Reference.blackListedItems.Add(1265);
-            Reference.blackListedItems.Add(3029);
-            Reference.blackListedItems.Add(3859);
-            Reference.blackListedItems.Add(3854);
-            Reference.blackListedItems.Add(533);
-            Reference.blackListedItems.Add(98);
-            Reference.blackListedItems.Add(3788);
-            Reference.blackListedItems.Add(2270);
-            Reference.blackListedItems.Add(3019);
-            Reference.blackListedItems.Add(964);
-            Reference.blackListedItems.Add(197);
-            Reference.blackListedItems.Add(3540);
-            Reference.blackListedItems.Add(434);
+            countweightBlackList.Add(556);
+            countweightBlackList.Add(557);
+            countweightBlackList.Add(558);
+            countweightBlackList.Add(559);
+            countweightBlackList.Add(560);
+            countweightBlackList.Add(561);
         }
     }
 
-    //Reset variables to be rechecked
+    //Reset variables to be rechecked.
     public class Reset : ModPlayer
     {
         public override void ResetEffects()
         {
-            Reference.equippedBee = false;
-            Reference.equippedStar = false;
-            Reference.equippedHive = false;
-            Reference.equippedPlague = false;
-            Reference.equippedRangerE = false;
-            Reference.equippedSScope = false;
-            Reference.equippedRScope = false;
-            Reference.equippedSorcE = false;
-            Reference.equippedCeleE = false;
-            Reference.equippedMechGlove = false;
-            Reference.equippedFGaunt = false;
-            Reference.equippedWarE = false;
-            Reference.equippedRegBand = false;
-            Reference.equippedRegBand = false;
-            Reference.equippedYoyoBag = false;
-            Reference.equippedOWABuckler = false;
+            AccessoryProperties.equippedBee = false;
+            AccessoryProperties.equippedStar = false;
+            AccessoryProperties.equippedHive = false;
+            AccessoryProperties.equippedPlagueHive = false;
+            AccessoryProperties.equippedRangerEmblem = false;
+            AccessoryProperties.equippedSniperScope = false;
+            AccessoryProperties.equippedRifleScope = false;
+            AccessoryProperties.equippedSorcerorEmblem = false;
+            AccessoryProperties.equippedCelestialEmblem = false;
+            AccessoryProperties.equippedMechGlove = false;
+            AccessoryProperties.equippedFireGauntlet = false;
+            AccessoryProperties.equippedWarriorEmblem = false;
+            AccessoryProperties.equippedRegenerationBand = false;
+            AccessoryProperties.equippedYoyoBag = false;
+            AccessoryProperties.equippedOOABuckler = false;
+            AccessoryProperties.equippedPygmyNecklace = false;
+            AccessoryProperties.equippedMagicQuiver = false;
+
+            if (!AccessoryProperties.equippedShackle)
+            {
+                IncreaseItemStats.shackleBoostCheck = false;
+                if (IncreaseItemStats.moddedDamage.Count > 0)
+                {
+                    foreach (Item item in IncreaseItemStats.moddedDamage)
+                    {
+                        item.damage -= 1;
+                    }
+                }
+                IncreaseItemStats.moddedDamage.RemoveRange(0, IncreaseItemStats.moddedDamage.Count);
+            }
+
+            AccessoryProperties.equippedShackle = false;
+
+            if (!AccessoryProperties.equippedMCuffs)
+            {
+                IncreaseItemStats.shackleBoostCheck2 = false;
+                if (IncreaseItemStats.moddedDamage2.Count > 0)
+                {
+                    foreach (Item item in IncreaseItemStats.moddedDamage2)
+                    {
+                        item.damage -= 3;
+                    }
+                }
+                IncreaseItemStats.moddedDamage2.RemoveRange(0, IncreaseItemStats.moddedDamage2.Count);
+            }
+
+            AccessoryProperties.equippedMCuffs = false;
+
+            if (!AccessoryProperties.equippedCCuffs)
+            {
+                IncreaseItemStats.shackleBoostCheck3 = false;
+                if (IncreaseItemStats.moddedDamage3.Count > 0)
+                {
+                    foreach (Item item in IncreaseItemStats.moddedDamage3)
+                    {
+                        item.damage -= 5;
+                    }
+                }
+                IncreaseItemStats.moddedDamage3.RemoveRange(0, IncreaseItemStats.moddedDamage3.Count);
+            }
+
+            AccessoryProperties.equippedCCuffs = false;
         }
     }
 }
