@@ -3,8 +3,6 @@ using Terraria.ModLoader;
 
 namespace niolsBuffedAccessories.Buffs
 {
-
-
     public class BeserkerRage : ModBuff
     {
         /// <summary>
