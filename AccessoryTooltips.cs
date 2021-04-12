@@ -99,9 +99,9 @@ namespace niolsBuffedAccessories
                 }
             }
 
-            if(item.type == ItemID.Shackle)
+            if (item.type == ItemID.Shackle)
             {
-                foreach (var line0 in tooltips.Where(line0 => line0.mod == "Terraria" && line0.Name == "Tooltip0"))
+                foreach (var line0 in tooltips.Where(line0 => line0.mod == "Terraria" && line0.Name == "Defense"))
                 {
                     line0.text += "\n+1 damage";
                 }
@@ -245,7 +245,7 @@ namespace niolsBuffedAccessories
             {
                 foreach (var line11 in tooltips.Where(line11 => line11.mod == "Terraria" && line11.Name == "Tooltip0"))
                 {
-                    line11.text += "\nPrevents iframe creation of minions";
+                    line11.text += "\nPrevents immunity frames creation of minions";
                 }
             }
 
