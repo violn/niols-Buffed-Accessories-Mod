@@ -1,23 +1,17 @@
-﻿using Microsoft.Xna.Framework;
-using System.Collections;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
+using Terraria.GameInput;
 using Terraria.ModLoader;
 
-//Allows the player to quickly summon summons.
 public class QuickSummon : GlobalItem
 {
-    public static ArrayList AddedSummon = new ArrayList();
+    public static List<int> AddedSummon = new List<int>();
+
     public override void OnConsumeMana(Item item, Player player, int manaConsumed)
     {
         if ((item.summon || item.sentry) && !item.autoReuse && ToggleSummon.QuickSummonEnabled)
         {
-            if (AddedSummon.Count == 0)
-            {
-                AddedSummon.Add(item.type);
-                item.useTime /= 3;
-                item.autoReuse = true;
-            }
-
             if (!AddedSummon.Contains(item.type))
             {
                 AddedSummon.Add(item.type);
@@ -26,17 +20,11 @@ public class QuickSummon : GlobalItem
             }
         }
     }
+
     public override bool UseItem(Item item, Player player)
     {
         if ((item.summon || item.sentry) && !item.autoReuse && ToggleSummon.QuickSummonEnabled)
         {
-            if (AddedSummon.Count == 0)
-            {
-                AddedSummon.Add(item.type);
-                item.useTime /= 3;
-                item.autoReuse = true;
-            }
-
             if (!AddedSummon.Contains(item.type))
             {
                 AddedSummon.Add(item.type);
@@ -52,12 +40,6 @@ public class QuickSummon : GlobalItem
     {
         if ((item.summon || item.sentry) && !item.autoReuse && ToggleSummon.QuickSummonEnabled)
         {
-            if (AddedSummon.Count == 0)
-            {
-                AddedSummon.Add(item.type);
-                item.useTime /= 3;
-                item.autoReuse = true;
-            }
             if (!AddedSummon.Contains(item.type))
             {
                 AddedSummon.Add(item.type);
@@ -69,7 +51,6 @@ public class QuickSummon : GlobalItem
         return base.Shoot(item, player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
     }
 
-    //Removes weapons that were given quick summon.
     public override void UpdateInventory(Item item, Player player)
     {
         if (!ToggleSummon.QuickSummonEnabled && AddedSummon != null)
@@ -79,6 +60,29 @@ public class QuickSummon : GlobalItem
                 AddedSummon.Remove(item.type);
                 item.useTime *= 3;
                 item.autoReuse = false;
+            }
+        }
+    }
+}
+
+public class ToggleSummon : ModPlayer
+{
+    public static bool QuickSummonEnabled = false;
+    public static ModHotKey toggleQuickSummon;
+
+    public override void ProcessTriggers(TriggersSet triggersSet)
+    {
+        if (toggleQuickSummon.JustPressed)
+        {
+            if (!QuickSummonEnabled)
+            {
+                QuickSummonEnabled = true;
+                Main.NewText("Quick summon enabled");
+            }
+            else
+            {
+                QuickSummonEnabled = false;
+                Main.NewText("Quick summon disabled");
             }
         }
     }
