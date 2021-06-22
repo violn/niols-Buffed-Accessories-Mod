@@ -1,352 +1,226 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using niolsBuffedAccessories;
 
-public class AccessoryProperties : GlobalItem
+namespace niolsBuffedAccessories
 {
-    public static bool equippedBee = false;
-    public static bool equippedStar = false;
-    public static bool equippedHive = false;
-    public static bool equippedPlagueHive = false;
-    public static bool equippedRangerEmblem = false;
-    public static bool equippedSniperScope = false;
-    public static bool equippedRifleScope = false;
-    public static bool equippedSorcerorEmblem = false;
-    public static bool equippedCelestialEmblem = false;
-    public static bool equippedMechGlove = false;
-    public static bool equippedFireGauntlet = false;
-    public static bool equippedWarriorEmblem = false;
-    public static bool equippedOOABuckler = false;
-    public static bool equippedYoyoBag = false;
-    public static bool equippedRegenerationBand = false;
-    public static bool equippedShackle = false;
-    public static bool equippedMCuffs = false;
-    public static bool equippedCCuffs = false;
-    public static bool EquippedCrossNecklace = false;
-    public static bool equippedPygmyNecklace = false;
-    public static bool equippedMagicQuiver = false;
-
-    public override void UpdateAccessory(Item item, Player player, bool hideVisual)
+    public class AccessoryTooltips : GlobalItem
     {
-        //Every piece of code similar to this is modifying what accessories do
-        if (BuffedAccessories.beeItems.Contains(item.type))
+        public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
-            equippedBee = true;
-        }
+            double current_stacks = Math.Round(MageEmblem.currentOnHitBoost * 100, 0, MidpointRounding.AwayFromZero);
 
-        if (BuffedAccessories.starItems.Contains(item.type))
-        {
-            equippedStar = true;
-        }
-
-        if (BuffedAccessories.hiveItems.Contains(item.type))
-        {
-            equippedHive = true;
-        }
-
-        if (item.type == ItemID.RangerEmblem)
-        {
-            equippedRangerEmblem = true;
-        }
-
-        if (item.type == ItemID.RifleScope)
-        {
-            player.rangedCrit += 5;
-            equippedRifleScope = true;
-        }
-
-        if (item.type == ItemID.SniperScope)
-        {
-            equippedSniperScope = true;
-        }
-
-        if (item.type == ItemID.SorcererEmblem)
-        {
-            player.statManaMax2 += 50;
-            player.manaCost *= .75f;
-            equippedSorcerorEmblem = true;
-        }
-
-        if (item.type == ItemID.CelestialEmblem)
-        {
-            player.manaRegenBonus += OnHitProj.celestialRegen;
-            player.manaRegenDelayBonus += 5;
-            player.statManaMax2 += 100;
-            player.manaCost *= .72f;
-            equippedCelestialEmblem = true;
-        }
-
-        if (item.type == ItemID.Shackle)
-        {
-            equippedShackle = true;
-        }
-
-        if (item.type == ItemID.MagicCuffs)
-        {
-            player.manaRegenBonus += 33;
-            player.manaRegenDelayBonus += 1;
-            equippedMCuffs = true;
-        }
-
-        if (item.type == ItemID.CelestialCuffs)
-        {
-            player.manaRegenBonus += 38;
-            player.manaRegenDelayBonus += 2;
-            equippedCCuffs = true;
-        }
-
-        if (item.type == ItemID.SummonerEmblem)
-        {
-            player.maxMinions += 2;
-            player.maxTurrets += 2;
-        }
-
-        if (item.type == ItemID.WarriorEmblem)
-        {
-            player.maxRunSpeed += 0.27f;
-            player.moveSpeed += .10f;
-            player.meleeCrit += 8;
-            equippedWarriorEmblem = true;
-        }
-
-        if (item.type == ItemID.BandofRegeneration)
-        {
-            player.lifeRegen += 1;
-        }
-
-        if (item.type == ItemID.CharmofMyths)
-        {
-            player.lifeRegen += 3;
-        }
-
-        if (item.type == ItemID.YoyoBag)
-        {
-            equippedYoyoBag = true;
-        }
-
-        if (item.type == ItemID.MonkBelt)
-        {
-            player.maxMinions += 1;
-            player.meleeDamage += .07f;
-            player.meleeSpeed += .07f;
-            player.minionDamage += .10f;
-            player.meleeCrit += 8;
-            player.maxRunSpeed += 0.27f;
-            player.moveSpeed += .10f;
-        }
-
-        if (item.type == ItemID.ApprenticeScarf)
-        {
-            player.maxMinions += 1;
-            player.magicDamage += .08f;
-            player.manaCost *= .95f;
-            player.minionDamage += .10f;
-            player.magicCrit += 8;
-            player.maxRunSpeed += 0.27f;
-            player.moveSpeed += .07f;
-        }
-
-        if (item.type == ItemID.SquireShield)
-        {
-            player.maxMinions += 1;
-            player.meleeDamage += .03f;
-            player.minionDamage += .10f;
-            player.meleeCrit += 7;
-            player.maxRunSpeed += 0.27f;
-            player.moveSpeed += .10f;
-            player.lifeRegen += 1;
-        }
-
-        if (item.type == ItemID.HuntressBuckler)
-        {
-            player.maxMinions += 1;
-            player.rangedDamage += .08f;
-            player.minionDamage += .10f;
-            player.rangedCrit += 7;
-            player.maxRunSpeed += 0.27f;
-            player.moveSpeed += .07f;
-            equippedOOABuckler = true;
-        }
-
-        if (item.type == ItemID.CrossNecklace)
-        {
-            EquippedCrossNecklace = true;
-        }
-
-        if (item.type == ItemID.PygmyNecklace)
-        {
-            equippedPygmyNecklace = true;
-        }
-
-        if (item.type == ItemID.MagicQuiver)
-        {
-            equippedMagicQuiver = true;
-        }
-
-        //Every piece of code here handles other modded items
-        if (BuffedAccessories.upgradedAccessories != null)
-        {
-            if (item.type == BuffedAccessories.upgradedAccessories.ItemType("Vengeance"))
-            {
-                equippedBee = true;
-                equippedStar = true;
-            }
-
-            if (item.type == BuffedAccessories.upgradedAccessories.ItemType("SolarFlareGlove"))
-            {
-                equippedFireGauntlet = true;
-            }
-
-            if (item.type == BuffedAccessories.upgradedAccessories.ItemType("VortexScope"))
-            {
-                equippedSniperScope = true;
-            }
-
-            if (item.type == BuffedAccessories.upgradedAccessories.ItemType("NebulaFlower"))
-            {
-                equippedCelestialEmblem = true;
-            }
-        }
-
-        if (BuffedAccessories.thorium != null)
-        {
-            if (item.type == BuffedAccessories.thorium.ItemType("SweetVengeance"))
-            {
-                equippedStar = true;
-                equippedBee = true;
-            }
-        }
-
-        if (BuffedAccessories.calamity != null)
-        {
             if (item.type == BuffedAccessories.calamity.ItemType("PlagueHive"))
             {
-                equippedHive = true;
-                equippedBee = true;
-                equippedPlagueHive = true;
-            }
-
-            if (item.type == BuffedAccessories.calamity.ItemType("DeificAmulet"))
-            {
-                equippedStar = true;
-            }
-
-            if (item.type == BuffedAccessories.calamity.ItemType("RampartofDeities"))
-            {
-                equippedStar = true;
-            }
-
-            if (item.type == BuffedAccessories.calamity.ItemType("ElementalGauntlet"))
-            {
-                equippedFireGauntlet = true;
-            }
-
-            if (item.type == BuffedAccessories.calamity.ItemType("YharimsInsignia"))
-            {
-                equippedFireGauntlet = true;
-            }
-
-            if (item.type == BuffedAccessories.calamity.ItemType("DaedalusEmblem"))
-            {
-                equippedRangerEmblem = true;
-            }
-
-            if (item.type == BuffedAccessories.calamity.ItemType("ElementalQuiver"))
-            {
-                equippedRangerEmblem = true;
-            }
-
-            if (item.type == BuffedAccessories.calamity.ItemType("SigilofCalamitas"))
-            {
-                equippedCelestialEmblem = true;
-            }
-
-            if (item.type == BuffedAccessories.calamity.ItemType("EtherealTalisman"))
-            {
-                equippedCelestialEmblem = true;
-            }
-
-            if (item.type == ItemID.MechanicalGlove)
-            {
-                player.maxRunSpeed += 0.47f;
-                player.moveSpeed += 0.17f;
-                player.meleeCrit += 12;
-                equippedMechGlove = true;
-            }
-
-            if (item.type == ItemID.FireGauntlet)
-            {
-                player.maxRunSpeed += 0.54f;
-                player.moveSpeed += 0.20f;
-                player.meleeCrit += 16;
-                equippedFireGauntlet = true;
-            }
-        }
-        else
-        {
-            if (item.type == ItemID.MechanicalGlove)
-            {
-                player.maxRunSpeed += 0.47f;
-                player.moveSpeed += 0.17f;
-                player.meleeCrit += 12;
-                equippedMechGlove = true;
-            }
-
-            if (item.type == ItemID.FireGauntlet)
-            {
-                player.maxRunSpeed += 0.54f;
-                player.meleeDamage += 0.04f;
-                player.meleeSpeed += 0.04f;
-                player.maxRunSpeed += 0.54f;
-                player.moveSpeed += 0.20f;
-                player.meleeCrit += 16;
-                equippedFireGauntlet = true;
-            }
-        }
-
-        if (BuffedAccessories.elementsAwokened != null)
-        {
-            if (item.type == BuffedAccessories.elementsAwokened.ItemType("ElementalArcanum"))
-            {
-                equippedCelestialEmblem = true;
-                equippedFireGauntlet = true;
-                equippedStar = true;
-            }
-
-            if (item.type == BuffedAccessories.elementsAwokened.ItemType("FrozenGauntlet"))
-            {
-                equippedFireGauntlet = true;
-                equippedStar = true;
+                tooltips[tooltips.Count - 2].text += "\nAttacks have a chance to spawn plague bees";
             }
 
             if (item.type == BuffedAccessories.elementsAwokened.ItemType("SolarEmblem"))
             {
-                equippedFireGauntlet = true;
-            }
-
-            if (item.type == BuffedAccessories.elementsAwokened.ItemType("StardustEmblem"))
-            {
-                player.maxMinions += 3;
-                player.maxTurrets += 3;
-            }
-
-            if (item.type == BuffedAccessories.elementsAwokened.ItemType("VortexEmblem"))
-            {
-                equippedRangerEmblem = true;
+                tooltips[tooltips.Count - 1].text += "\n12% increased movement speed\n10% increased melee critical strike chance";
             }
 
             if (item.type == BuffedAccessories.elementsAwokened.ItemType("NebulaEmblem"))
             {
-                player.manaRegenBonus += OnHitProj.celestialRegen;
-                player.statManaMax2 += 100;
-                player.manaCost *= .72f;
-                equippedCelestialEmblem = true;
+                tooltips[tooltips.Count - 1].text += "\n20% reduced mana usage\n+120 maximum mana";
             }
 
-            if (item.type == BuffedAccessories.elementsAwokened.ItemType("EtherealShell"))
+            if (item.type == BuffedAccessories.elementsAwokened.ItemType("StardustEmblem"))
             {
-                equippedCelestialEmblem = true;
+                tooltips[tooltips.Count - 1].text += "\n+3 maximum minions and sentries";
+            }
+
+            if (item.type == BuffedAccessories.elementsAwokened.ItemType("SufferWithMe"))
+            {
+                tooltips[tooltips.Count - 2].text += "\n+35 damage";
+            }
+
+            if (AssignItems.buffedItems.ContainsKey(item.type))
+            {
+                string identifiers = AssignItems.buffedItems[item.type];
+
+                if (identifiers.Contains("rangeremblem"))
+                {
+                    tooltips[!item.expert ? tooltips.Count - 1 : tooltips.Count - 2].text += item.type != ItemID.RangerEmblem ?
+                    "\nRanged projectiles have a chance to duplicate" :
+                    "\n10% chance not to consume ammo\nRanged projectiles have a chance to duplicate";
+                }
+
+                if (identifiers.Contains("warrioremblem"))
+                {
+                    tooltips[!item.expert ? tooltips.Count - 1 : tooltips.Count - 2].text += item.type != ItemID.WarriorEmblem ?
+                       "\nKilling an enemy enhances your melee abilities" :
+                       "\n8% increased melee critical strike chance\n10% increased movement speed\nKilling an enemy enhances your melee abilities";
+                }
+
+                if (identifiers.Contains("sniperscope"))
+                {
+                    tooltips[!item.expert ? tooltips.Count - 1 : tooltips.Count - 2].text += "\n15% chance not to consume ammo";
+                }
+
+                if (identifiers.Contains("magiccuffs"))
+                {
+                    tooltips[!item.expert ? tooltips.Count - 1 : tooltips.Count - 2].text += "\nIncreases mana regeneration\n+3 magic damage";
+                }
+
+                if (identifiers.Contains("celestialcuffs"))
+                {
+                    tooltips[!item.expert ? tooltips.Count - 1 : tooltips.Count - 2].text += "\nIncreases mana regeneration\n+5 magic damage";
+                }
+
+                if (identifiers.Contains("shackle"))
+                {
+                    tooltips[!item.expert ? tooltips.Count - 1 : tooltips.Count - 2].text += "\n+1 damage";
+                }
+
+                if (identifiers.Contains("bee"))
+                {
+                    tooltips[!item.expert ? tooltips.Count - 1 : tooltips.Count - 2].text += "\nAttacks have a chance to spawn bees";
+                }
+
+                if (identifiers.Contains("star"))
+                {
+                    tooltips[!item.expert ? tooltips.Count - 1 : tooltips.Count - 2].text += "\nAttacks have a chance to spawn stars from the sky";
+                }
+
+                if (identifiers.Contains("mechglove"))
+                {
+                    tooltips[!item.expert ? tooltips.Count - 1 : tooltips.Count - 2].text += "\nEnables autoswing for all melee weapons";
+                }
+
+                if (identifiers.Contains("riflescope"))
+                {
+                    tooltips[!item.expert ? tooltips.Count - 1 : tooltips.Count - 2].text += "\nIncreased ranged damage based on distance";
+                }
+
+                if (identifiers.Contains("pygmynecklace"))
+                {
+                    tooltips[!item.expert ? tooltips.Count - 1 : tooltips.Count - 2].text += "\nPrevents immunity frames creation of minions";
+                }
+
+                if (identifiers.Contains("crossnecklace"))
+                {
+                    tooltips[!item.expert ? tooltips.Count - 1 : tooltips.Count - 2].text += "\nGives a chance to prevent death";
+                }
+
+                if (identifiers.Contains("sorcereremblem"))
+                {
+                    tooltips[!item.expert ? tooltips.Count - 1 : tooltips.Count - 2].text += item.type != ItemID.SorcererEmblem ?
+                        $"\nDealing magic damage applies a magic stack that boosts magic damage\nCurrent stacks: {current_stacks}" :
+                        $"\n15% reduced mana usage\n+50 maximum mana\nDealing magic damage applies a magic stack that boosts magic damage\nCurrent stacks: {current_stacks}";
+                }
+
+                if (identifiers.Contains("celestialemblem"))
+                {
+                    tooltips[!item.expert ? tooltips.Count - 1 : tooltips.Count - 2].text += item.type != ItemID.CelestialEmblem ?
+                        $"\nDealing magic damage applies a magic stack that boosts magic damage and mana regeneration\nCurrent stacks: {current_stacks}" :
+                        $"\n\n+100 maximum mana\n17% reduced mana usage\nDealing magic damage applies a magic stack that boosts magic damage and mana regeneration\nCurrent stacks: {current_stacks}";
+                }
+            }
+
+            switch (item.type)
+            {
+                case ItemID.SummonerEmblem:
+                    tooltips[tooltips.Count - 1].text += "\n+2 maximum minions and sentries";
+                    break;
+
+                case ItemID.MonkBelt:
+                    foreach (var l in from TooltipLine l in tooltips
+                                      where l.Name == "Tooltip0"
+                                      select l)
+                    {
+                        l.text = "+1 maximum minions and sentries";
+                    }
+
+                    foreach (var l in from TooltipLine l in tooltips
+                                      where l.Name == "Tooltip1"
+                                      select l)
+                    {
+                        l.text = "10% increased minion damage\n4% increased melee speed and damage\n4% increased melee critical strike chance\n5% increased movement speed";
+                    }
+                    break;
+
+                case ItemID.SquireShield:
+                    foreach (var l in from TooltipLine l in tooltips
+                                      where l.Name == "Tooltip0"
+                                      select l)
+                    {
+                        l.text = "+1 maximum minions and sentries";
+                    }
+
+                    foreach (var l in from TooltipLine l in tooltips
+                                      where l.Name == "Tooltip1"
+                                      select l)
+                    {
+                        l.text = "10% increased minion damage\n2% increased melee damage\n4% increased melee critical strike chance\n5% increased movement speed\nIncreased health regeneration";
+                    }
+                    break;
+
+                case ItemID.ApprenticeScarf:
+                    foreach (var l in from TooltipLine l in tooltips
+                                      where l.Name == "Tooltip0"
+                                      select l)
+                    {
+                        l.text = "+1 maximum minions and sentries";
+                    }
+
+                    foreach (var l in from TooltipLine l in tooltips
+                                      where l.Name == "Tooltip1"
+                                      select l)
+                    {
+                        l.text = "10% increased minion damage\n4% increased magic damage and critical strike chance\n3% reduced mana usage\n4% increased movement speed";
+                    }
+                    break;
+
+                case ItemID.HuntressBuckler:
+                    foreach (var l in from TooltipLine l in tooltips
+                                      where l.Name == "Tooltip0"
+                                      select l)
+                    {
+                        l.text = "+1 maximum minions and sentries";
+                    }
+
+                    foreach (var l in from TooltipLine l in tooltips
+                                      where l.Name == "Tooltip1"
+                                      select l)
+                    {
+                        l.text = "10% increased minion damage\n4% increased ranged damage\n4% ranged critical strike chance\n4% increased movement speed\n2% chance not to consume ammo";
+                    }
+                    break;
+
+                case ItemID.MechanicalGlove:
+                    foreach (var l in from TooltipLine l in tooltips
+                                      where l.Name == "Tooltip1"
+                                      select l)
+                    {
+                        l.text += BuffedAccessories.calamity != null ?
+                        "\n12% increased melee critical strike chance\n17% increased movement speed" :
+                        "\n12% increased melee damage, speed, and critical strike chance\n17% increased movement speed";
+                    }
+                    break;
+
+                case ItemID.FireGauntlet:
+                    foreach (var l in from TooltipLine l in tooltips
+                                      where l.Name == "Tooltip1"
+                                      select l)
+                    {
+                        l.text += BuffedAccessories.calamity != null ?
+                        "\n15% increased melee critical strike chance\n20% increased movement speed" :
+                        "15% increased melee damage, speed, and critical strike chance\n20% increased movement speed";
+                    }
+                    break;
+
+                case ItemID.ShinyStone:
+                    foreach (var l in from TooltipLine l in tooltips
+                                      where l.Name == "Tooltip0"
+                                      select l)
+                    {
+                        l.text = "Greatly increases life regen and increases defense when not moving";
+                    }
+                    break;
             }
         }
     }
