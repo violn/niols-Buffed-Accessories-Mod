@@ -13,27 +13,27 @@ namespace niolsBuffedAccessories
         {
             double current_stacks = Math.Round(MageEmblem.currentOnHitBoost * 100, 0, MidpointRounding.AwayFromZero);
 
-            if (item.type == BuffedAccessories.calamity.ItemType("PlagueHive"))
+            if (BuffedAccessories.calamity != null && item.type == BuffedAccessories.calamity.ItemType("PlagueHive"))
             {
                 tooltips[tooltips.Count - 2].text += "\nAttacks have a chance to spawn plague bees";
             }
 
-            if (item.type == BuffedAccessories.elementsAwokened.ItemType("SolarEmblem"))
+            if (BuffedAccessories.elementsAwokened != null && item.type == BuffedAccessories.elementsAwokened.ItemType("SolarEmblem"))
             {
                 tooltips[tooltips.Count - 1].text += "\n12% increased movement speed\n10% increased melee critical strike chance";
             }
 
-            if (item.type == BuffedAccessories.elementsAwokened.ItemType("NebulaEmblem"))
+            if (BuffedAccessories.elementsAwokened != null && item.type == BuffedAccessories.elementsAwokened.ItemType("NebulaEmblem"))
             {
                 tooltips[tooltips.Count - 1].text += "\n20% reduced mana usage\n+120 maximum mana";
             }
 
-            if (item.type == BuffedAccessories.elementsAwokened.ItemType("StardustEmblem"))
+            if (BuffedAccessories.elementsAwokened != null && item.type == BuffedAccessories.elementsAwokened.ItemType("StardustEmblem"))
             {
                 tooltips[tooltips.Count - 1].text += "\n+3 maximum minions and sentries";
             }
 
-            if (item.type == BuffedAccessories.elementsAwokened.ItemType("SufferWithMe"))
+            if (BuffedAccessories.elementsAwokened != null && item.type == BuffedAccessories.elementsAwokened.ItemType("SufferWithMe"))
             {
                 tooltips[tooltips.Count - 2].text += "\n+35 damage";
             }
