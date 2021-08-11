@@ -5,13 +5,13 @@ namespace niolsBuffedAccessories.Buffs
 {
     public class EnhancedManaRegen : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Enhanced Mana Regeneration");
             Description.SetDefault("You're quickly regenerating mana.");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = false;
-            canBeCleared = false;
+            CanBeCleared = false;
         }
 
         public override void Update(Player player, ref int buffIndex)

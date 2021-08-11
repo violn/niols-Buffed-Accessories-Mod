@@ -1,65 +1,39 @@
+using niolsBuffedAccessories.Buffed;
+using System;
+using Terraria;
 using Terraria.ModLoader;
 
-public class Timers : ModPlayer
+namespace niolsBuffedAccessories
 {
-    public static int magicCounter = 0;
-    public static int magicStacksDelay = 0;
-    public static int beeTimer = 0;
-    public static int starTimer = 0;
-    public static int stoneTimer = 0;
-
-    public override void PostUpdateEquips()
+    public class Timers : ModPlayer
     {
-        if (!player.shinyStone || !ShinyStone.playerIsStill)
-        {
-            player.statDefense -= ShinyStone.stoneDefBoost;
-            ShinyStone.stoneDefBoost = 0;
-        }
-        else player.statDefense += ShinyStone.stoneDefBoost;
+        public static int magicCounter = 0;
+        public static int magicStacksDelay = 0;
+        public static int beeTimer = 0;
+        public static int starTimer = 0;
 
-        if (magicStacksDelay < 260)
+        public override void PostUpdateEquips()
         {
-            magicStacksDelay++;
-        }
+            magicStacksDelay += magicStacksDelay < 260 ? 1 : 0;
 
-        if (magicCounter > 12 && magicStacksDelay > 120)
-        {
-            MageEmblem.currentOnHitBoost -= MageEmblem.currentOnHitBoost - .01f < 0f ? MageEmblem.currentOnHitBoost : .01f;
-
-            if (MageEmblem.celestialRegen > 15)
+            if (magicCounter > 12 && magicStacksDelay > 120)
             {
-                MageEmblem.celestialRegen -= 1;
-            }
+                MageEmblem.currentOnHitBoost -= MageEmblem.currentOnHitBoost - .01f < 0f ? MageEmblem.currentOnHitBoost : .01f;
 
-            magicCounter = 0;
-        }
-
-        if (stoneTimer > 60)
-        {
-            if (player.shinyStone && ShinyStone.playerIsStill)
-            {
-                if (ShinyStone.stoneDefBoost <= 50)
+                if (MageEmblem.celestialRegen > 15)
                 {
-                    ShinyStone.stoneDefBoost++;
+                    MageEmblem.celestialRegen -= 1;
                 }
+
+                magicCounter = 0;
             }
 
-            stoneTimer = 0;
-        }
+            SpawnProjectiles.BeesSpawned = beeTimer == 120 ? 0 : SpawnProjectiles.StarsSpawned;
+            SpawnProjectiles.StarsSpawned = starTimer == 120 ? 0 : SpawnProjectiles.StarsSpawned;
 
-        if (beeTimer == 120)
-        {
-            SpawnProjectiles.BeesSpawned = 0;
+            beeTimer++;
+            starTimer++;
+            magicCounter++;
         }
-
-        if (starTimer == 120)
-        {
-            SpawnProjectiles.StarsSpawned = 0;
-        }
-
-        beeTimer++;
-        starTimer++;
-        stoneTimer++;
-        magicCounter++;
     }
 }

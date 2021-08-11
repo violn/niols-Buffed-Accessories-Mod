@@ -1,0 +1,5 @@
+displayName = niol's Buffed Accessories
+author = niol
+version = 1.0.1
+homepage = https://forums.terraria.org/index.php?threads/niols-buffed-acessories.100971/
+includeSource = true

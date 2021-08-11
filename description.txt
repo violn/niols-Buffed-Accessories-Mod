@@ -1,7 +1,6 @@
-# niols-Buffed-Accessories-Mod
-A small mod I create for tmodloader that buffs a handful of accessories by giving them better stats, more stats, or new mechanics.
+A small mod I made back in 1.3.5 and imported to 1.4 that buffs some of the accessories in this game.
 
-# Features
+Features:
 Honey Comb
 All attacks have a chance to spawn bees.
 
@@ -115,6 +114,7 @@ Two Custom Buffs
 Enhanced mana regeneration: When holding the star cloak or equivalent getting hit will hugely enhanced your mana regeneration.
 Berserker Rage: When melee emblem or equivalent is equipped killing an enemy will greatly enhance you melee capabilties.
 
-# Notes
+Notes:
+If you have any issues with this mod be sure to comment below I'm usually quick to respond.
 And yes the name is a bit unoriginal but I couldn't find anything cool to call it.
 This mod hasn't been tested in multiplayer so if you encounter any multiplayer bugs it might take a while before it's fixed.
