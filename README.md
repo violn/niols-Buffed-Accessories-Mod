@@ -4,7 +4,7 @@ A small mod I create for tmodloader that buffs a handful of accessories by givin
 
 # Features
 
-##Honey Comb
+## Honey Comb
 
 attacks have a chance to spawn bees
 
