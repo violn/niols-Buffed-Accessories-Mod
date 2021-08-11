@@ -6,7 +6,7 @@ A small mod I create for tmodloader that buffs a handful of accessories by givin
 
 ## Honey Comb
 
-attacks have a chance to spawn bees
+Attacks have a chance to spawn bees
 
 ## Star Cloak
 
