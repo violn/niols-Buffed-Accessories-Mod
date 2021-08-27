@@ -1,6 +1,5 @@
 using niolsBuffedAccessories.Buffs;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace niolsBuffedAccessories
@@ -9,11 +8,6 @@ namespace niolsBuffedAccessories
     {
         public override void OnHitPlayer(NPC npc, Player player, int damage, bool crit)
         {
-            if (AccessoryProperties.equippedBee)
-            {
-                player.AddBuff(BuffID.Honey, 480);
-            }
-
             if (AccessoryProperties.equippedStar)
             {
                 player.AddBuff(ModContent.BuffType<EnhancedManaRegen>(), 480);

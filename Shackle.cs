@@ -12,14 +12,14 @@ namespace niolsBuffedAccessories.Buffed
                 flat += 1f;
             }
 
-            if (AccessoryProperties.equippedCelestialCuffs && item.damage > 0 && item.DamageType == DamageClass.Magic)
-            {
-                flat += 5f;
-            }
-
             if (AccessoryProperties.equippedMagicCuffs && item.damage > 0 && item.DamageType == DamageClass.Magic)
             {
                 flat += 3f;
+            }
+
+            if (AccessoryProperties.equippedCelestialCuffs && item.damage > 0 && item.DamageType == DamageClass.Magic)
+            {
+                flat += 5f;
             }
         }
     }

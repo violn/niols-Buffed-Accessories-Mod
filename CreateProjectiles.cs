@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using niolsBuffedAccessories.Configs;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -23,7 +24,7 @@ namespace niolsBuffedAccessories.Buffed
         {
             if (!blacklistedProjectiles.Contains(proj.type))
             {
-                if (AccessoryProperties.equippedBee && SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
+                if (AccessoryProperties.equippedBee && ModContent.GetInstance<Config>().Bee && SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
                 {
                     if (AccessoryProperties.equippedHive && BuffedAccessories.ran.Next(6) > 3)
                     {
@@ -32,7 +33,7 @@ namespace niolsBuffedAccessories.Buffed
                     else SpawnProjectiles.CreateBees(target, damage, false, proj.GetProjectileSource_FromThis());
                 }
 
-                if (AccessoryProperties.equippedStar && SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
+                if (AccessoryProperties.equippedStar && ModContent.GetInstance<Config>().Star && SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
                 {
                     SpawnProjectiles.CreateStars(target, damage, proj.GetProjectileSource_FromThis());
                 }

@@ -1,6 +1,4 @@
 using niolsBuffedAccessories.Buffed;
-using System;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace niolsBuffedAccessories
@@ -19,17 +17,12 @@ namespace niolsBuffedAccessories
             if (magicCounter > 12 && magicStacksDelay > 120)
             {
                 MageEmblem.currentOnHitBoost -= MageEmblem.currentOnHitBoost - .01f < 0f ? MageEmblem.currentOnHitBoost : .01f;
-
-                if (MageEmblem.celestialRegen > 15)
-                {
-                    MageEmblem.celestialRegen -= 1;
-                }
-
+                MageEmblem.celestialRegen -= MageEmblem.celestialRegen > 15 ? 1 : 0;
                 magicCounter = 0;
             }
 
-            SpawnProjectiles.BeesSpawned = beeTimer == 120 ? 0 : SpawnProjectiles.StarsSpawned;
-            SpawnProjectiles.StarsSpawned = starTimer == 120 ? 0 : SpawnProjectiles.StarsSpawned;
+            SpawnProjectiles.beesSpawned = beeTimer == 120 ? 0 : SpawnProjectiles.starsSpawned;
+            SpawnProjectiles.starsSpawned = starTimer == 120 ? 0 : SpawnProjectiles.starsSpawned;
 
             beeTimer++;
             starTimer++;

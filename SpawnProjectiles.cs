@@ -1,18 +1,18 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
 
 namespace niolsBuffedAccessories
 {
     public class SpawnProjectiles : GlobalProjectile
     {
-        public static int BeesSpawned = 0;
-        public static int StarsSpawned = 0;
+        public static int beesSpawned = 0;
+        public static int starsSpawned = 0;
         public static void CreateBees(NPC target, int damage, bool strong, IProjectileSource source)
         {
-            if (BeesSpawned <= 25)
+            if (beesSpawned <= 25)
             {
                 Projectile.NewProjectileDirect
                     (source,
@@ -23,7 +23,7 @@ namespace niolsBuffedAccessories
                     strong ? .5f : 0f,
                     Main.myPlayer).usesLocalNPCImmunity = true;
 
-                BeesSpawned++;
+                beesSpawned++;
                 Timers.beeTimer = 0;
             }
         }
@@ -33,7 +33,7 @@ namespace niolsBuffedAccessories
             Player player = Main.LocalPlayer;
             float targetXOffSet = BuffedAccessories.ran.Next(-350, 350);
             float xVelocity = targetXOffSet * (-1f / 35f);
-            if (StarsSpawned <= 35)
+            if (starsSpawned <= 35)
             {
                 Projectile.NewProjectileDirect
                     (source,
@@ -43,7 +43,7 @@ namespace niolsBuffedAccessories
                     (int)((damage * .80f) + 1f),
                     1f,
                     Main.myPlayer).usesLocalNPCImmunity = true;
-                StarsSpawned++;
+                starsSpawned++;
                 Timers.starTimer = 0;
             }
         }

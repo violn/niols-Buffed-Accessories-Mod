@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using niolsBuffedAccessories.Configs;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace niolsBuffedAccessories.Buffed
@@ -7,7 +8,7 @@ namespace niolsBuffedAccessories.Buffed
     {
         public override void ModifyHitNPC(Item item, Player player, NPC target, ref int damage, ref float knockBack, ref bool crit)
         {
-            if (AccessoryProperties.equippedBee && CreateProjectiles.SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
+            if (AccessoryProperties.equippedBee && ModContent.GetInstance<Config>().Bee && CreateProjectiles.SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
             {
                 if (AccessoryProperties.equippedHive && BuffedAccessories.ran.Next(1, 100) < 50)
                 {
@@ -16,7 +17,7 @@ namespace niolsBuffedAccessories.Buffed
                 else SpawnProjectiles.CreateBees(target, damage, false, player.GetProjectileSource_Item(item));
             }
 
-            if (AccessoryProperties.equippedStar && CreateProjectiles.SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
+            if (AccessoryProperties.equippedStar && ModContent.GetInstance<Config>().Star && CreateProjectiles.SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
             {
                 SpawnProjectiles.CreateStars(target, damage, player.GetProjectileSource_Item(item));
             }
