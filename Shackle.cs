@@ -7,20 +7,9 @@ namespace niolsBuffedAccessories.Buffed
     {
         public override void ModifyWeaponDamage(Item item, Player player, ref StatModifier damage, ref float flat)
         {
-            if (AccessoryProperties.equippedShackle && item.damage > 0)
-            {
-                flat += 1f;
-            }
-
-            if (AccessoryProperties.equippedMagicCuffs && item.damage > 0 && item.DamageType == DamageClass.Magic)
-            {
-                flat += 3f;
-            }
-
-            if (AccessoryProperties.equippedCelestialCuffs && item.damage > 0 && item.DamageType == DamageClass.Magic)
-            {
-                flat += 5f;
-            }
+            flat += AccessoryProperties.equippedShackle && item.damage > 0 ? 1f : 0f;
+            flat += AccessoryProperties.equippedMagicCuffs && item.damage > 0 && item.DamageType == DamageClass.Magic ? 3f : 0f;
+            flat += AccessoryProperties.equippedCelestialCuffs && item.damage > 0 && item.DamageType == DamageClass.Magic ? 5f : 0f;
         }
     }
 }

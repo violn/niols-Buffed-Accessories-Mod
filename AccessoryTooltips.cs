@@ -148,7 +148,16 @@ namespace niolsBuffedAccessories
 
                     case ItemID.SniperScope:
                         foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Sniper
+                                          where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Sniper
+                                          select l)
+                        {
+                            l.text += "\n15% chance not to consume ammo\nRanged projectiles have a chance to duplicate\nIncreased ranged damage based on distance";
+                        }
+                        break;
+
+                    case ItemID.ReconScope:
+                        foreach (var l in from TooltipLine l in tooltips
+                                          where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Recon
                                           select l)
                         {
                             l.text += "\n15% chance not to consume ammo\nRanged projectiles have a chance to duplicate\nIncreased ranged damage based on distance";

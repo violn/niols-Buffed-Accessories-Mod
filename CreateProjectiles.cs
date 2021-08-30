@@ -52,7 +52,7 @@ namespace niolsBuffedAccessories.Buffed
                 return BuffedAccessories.ran.Next(1, 100) < 10;
             }
 
-            return BuffedAccessories.ran.Next(1, 100) < (10 + time / 10 * 40 > 65 ? 65 : 10 + time / 10 * 40);
+            return BuffedAccessories.ran.Next(1, 100) < ((time + 10) * (5 / 3));
         }
     }
 }

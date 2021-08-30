@@ -101,8 +101,12 @@ namespace niolsBuffedAccessories.Configs
         [DefaultValue(true)]
         public bool Shield;
 
-        [Label("Buckler")]
+        [Label("Huntress Buckler")]
         [DefaultValue(true)]
         public bool Buckler;
+
+        [Label("Recon Scope")]
+        [DefaultValue(true)]
+        public bool Recon;
     }
 }

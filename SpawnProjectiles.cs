@@ -33,6 +33,7 @@ namespace niolsBuffedAccessories
             Player player = Main.LocalPlayer;
             float targetXOffSet = BuffedAccessories.ran.Next(-350, 350);
             float xVelocity = targetXOffSet * (-1f / 35f);
+
             if (starsSpawned <= 35)
             {
                 Projectile.NewProjectileDirect
@@ -43,6 +44,7 @@ namespace niolsBuffedAccessories
                     (int)((damage * .80f) + 1f),
                     1f,
                     Main.myPlayer).usesLocalNPCImmunity = true;
+
                 starsSpawned++;
                 Timers.starTimer = 0;
             }
@@ -54,6 +56,7 @@ namespace niolsBuffedAccessories
             {
                 float projOffsetSpeedY = 0;
                 float projOffestSpeedX = 0;
+
                 while (projOffsetSpeedY == 0 && projOffestSpeedX == 0)
                 {
                     projOffsetSpeedY = BuffedAccessories.ran.Next(-1, 1);

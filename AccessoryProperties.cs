@@ -116,6 +116,10 @@ namespace niolsBuffedAccessories
                         equippedRangerEmblem = equippedRifleScope = ModContent.GetInstance<Config>().Sniper;
                         break;
 
+                    case ItemID.ReconScope:
+                        equippedRangerEmblem = equippedRifleScope = ModContent.GetInstance<Config>().Recon;
+                        break;
+
                     case ItemID.MagicCuffs:
                         equippedMagicCuffs = ModContent.GetInstance<Config>().Magic;
                         break;

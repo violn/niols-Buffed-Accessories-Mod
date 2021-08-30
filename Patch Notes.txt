@@ -1,0 +1,5 @@
+﻿Adjusted projectile spawning formula.
+Adjusted Sniper Scope's tooltip.
+Added Recon Scope.
+Changed homepage.
+Fixed Huntress's Buckler's config name.
