@@ -1,5 +1,2 @@
-﻿Adjusted projectile spawning formula.
-Adjusted Sniper Scope's tooltip.
-Added Recon Scope.
-Changed homepage.
-Fixed Huntress's Buckler's config name.
+﻿Adjusted the way minions deal damage when the pygmy necklace is removed 
+So they don't do a ridiculous amount of damage at once
