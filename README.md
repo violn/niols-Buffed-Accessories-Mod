@@ -187,3 +187,4 @@ Berserker Rage: When melee emblem or equivalent is equipped killing an enemy wil
 
 And yes the name is a bit unoriginal but I couldn't find anything cool to call it.
 This mod hasn't been tested in multiplayer so if you encounter any multiplayer bugs it might take a while before it's fixed.
+Workshop Page: https://steamcommunity.com/sharedfiles/filedetails/?id=2564109369
