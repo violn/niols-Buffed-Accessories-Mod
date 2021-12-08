@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace niolsBuffedAccessories.Buffs
@@ -11,7 +12,7 @@ namespace niolsBuffedAccessories.Buffs
             Description.SetDefault("Your melee abilities are increased.");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = false;
-            CanBeCleared = false;
+            BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
         }
 
         public override void Update(Player player, ref int buffIndex)

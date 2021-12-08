@@ -111,6 +111,7 @@ Pygmy Necklace :
 Removes enemy immunity frame created by summons.
 
 Two Custom Buffs:
+
 Enhanced Mana Regeneration: 
 When holding the star cloak or equivalent getting hit will hugely enhanced your mana regeneration.
 
