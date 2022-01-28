@@ -1,2 +1,1 @@
-﻿Adjusted the way minions deal damage when the pygmy necklace is removed 
-So they don't do a ridiculous amount of damage at once
+﻿Tweaked various formulas as they weren't working as intended.

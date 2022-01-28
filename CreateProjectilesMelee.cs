@@ -10,7 +10,7 @@ namespace niolsBuffedAccessories.Buffed
         {
             if (AccessoryProperties.equippedBee && ModContent.GetInstance<Config>().Bee && CreateProjectiles.SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
             {
-                if (AccessoryProperties.equippedHive && BuffedAccessories.ran.Next(1, 100) < 50)
+                if (AccessoryProperties.equippedHive && BuffedAccessories.ran.Next(101) < 50)
                 {
                     SpawnProjectiles.CreateBees(target, damage, true, player.GetProjectileSource_Item(item));
                 }

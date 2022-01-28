@@ -22,8 +22,7 @@ namespace niolsBuffedAccessories.Buffed
         private static int CalculateRangedDamage(int damage)
         {
             float distance = GetDistance() > 0f ? GetDistance() : 0f;
-            float damage_multiplier = (float)(Math.Pow(distance / 1600f, 3f / 2f) > .5f ? .5f : Math.Pow(distance / 1600f, 3f / 2f));
-            damage_multiplier *= .75f;
+            float damage_multiplier = (float)(Math.Pow(distance / 1600f, 3f / 2f) > .4f ? .4f : Math.Pow(distance / 1600f, 3f / 2f));
             return (int)(damage * (1f + damage_multiplier));
         }
 

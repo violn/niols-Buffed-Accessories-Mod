@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "PfBdQ+g4pSaB3aex0HJvCLj5V8txPY4VfeEAFIwsob/4HFpB6KVuydQbIs1r64W45thv9A/nihsFvYevekNlFQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Don\\Documents\\My Games\\Terraria\\ModLoader\\Beta\\Mod Sources\\niolsBuffedAccessories\\niolsBuffedAccessories.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Don\\.nuget\\packages\\tmodloader.codeassist\\0.1.3\\tmodloader.codeassist.0.1.3.nupkg.sha512"
+  ],
+  "logs": []
+}

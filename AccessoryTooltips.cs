@@ -15,7 +15,7 @@ namespace niolsBuffedAccessories
         {
             if (ModContent.GetInstance<Config>().AllBuffs)
             {
-                double current_stacks = Math.Round(MageEmblem.currentOnHitBoost * 100, 0, MidpointRounding.AwayFromZero);
+                double current_stacks = Math.Round(MageEmblem.currentOnHitBoost * 100, 0);
 
                 switch (item.type)
                 {

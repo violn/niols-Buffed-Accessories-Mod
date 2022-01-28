@@ -1,4 +1,3 @@
-//This mod was made by niol#1299 add me on discord if you have any questions.
 using System;
 using Terraria.ModLoader;
 

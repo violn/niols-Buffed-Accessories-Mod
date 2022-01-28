@@ -1,4 +1,5 @@
 ﻿using niolsBuffedAccessories.Configs;
+using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -26,7 +27,7 @@ namespace niolsBuffedAccessories.Buffed
             {
                 if (AccessoryProperties.equippedBee && ModContent.GetInstance<Config>().Bee && SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
                 {
-                    if (AccessoryProperties.equippedHive && BuffedAccessories.ran.Next(6) > 3)
+                    if (AccessoryProperties.equippedHive && BuffedAccessories.ran.Next(2) == 0)
                     {
                         SpawnProjectiles.CreateBees(target, damage, true, proj.GetProjectileSource_FromThis());
                     }
@@ -42,17 +43,12 @@ namespace niolsBuffedAccessories.Buffed
 
         public static bool SpawnProjectile(int time)
         {
-            if (time > 40)
+            if (time > 25)
             {
-                return BuffedAccessories.ran.Next(1, 100) < 65;
+                return BuffedAccessories.ran.Next(101) < Math.Pow(time, 2f) / 25f;
             }
 
-            if (time < 10)
-            {
-                return BuffedAccessories.ran.Next(1, 100) < 10;
-            }
-
-            return BuffedAccessories.ran.Next(1, 100) < ((time + 10) * (5 / 3));
+            return BuffedAccessories.ran.Next(101) < time;
         }
     }
 }

@@ -6,22 +6,20 @@ namespace niolsBuffedAccessories.Buffed
 {
     public class Pygmy : GlobalProjectile
     {
-        public static List<Projectile> modifiedPorjectiles = new();
+        public static List<Projectile> modifiedProjectiles = new();
 
         public override void OnHitNPC(Projectile proj, NPC target, int damage, float knockback, bool crit)
         {
             if ((proj.sentry || proj.minion) && AccessoryProperties.equippedPygmyNecklace && !proj.usesLocalNPCImmunity)
             {
                 proj.usesLocalNPCImmunity = true;
-                proj.localNPCImmunity[target.whoAmI] = 2;
-                target.immune[proj.owner] = 0;
-                modifiedPorjectiles.Add(proj);
+                modifiedProjectiles.Add(proj);
             }
 
-            else if (modifiedPorjectiles.Contains(proj))
+            else if (modifiedProjectiles.Contains(proj))
             {
                 proj.usesLocalNPCImmunity = false;
-                modifiedPorjectiles.Remove(proj);
+                modifiedProjectiles.Remove(proj);
             }
         }
     }
