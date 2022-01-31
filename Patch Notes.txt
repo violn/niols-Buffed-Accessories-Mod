@@ -1,1 +1,1 @@
-﻿Tweaked various formulas as they weren't working as intended.
+﻿Corrected crossnecklace to work as intended.

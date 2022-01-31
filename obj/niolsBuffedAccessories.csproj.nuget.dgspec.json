@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Don\\Documents\\My Games\\Terraria\\ModLoader\\Beta\\Mod Sources\\niolsBuffedAccessories\\niolsBuffedAccessories.csproj": {}
+    "C:\\Users\\Don\\Source\\Repos\\violn\\niols-Buffed-Accessories-Mod\\niolsBuffedAccessories.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Don\\Documents\\My Games\\Terraria\\ModLoader\\Beta\\Mod Sources\\niolsBuffedAccessories\\niolsBuffedAccessories.csproj": {
-      "version": "6.0.0",
+    "C:\\Users\\Don\\Source\\Repos\\violn\\niols-Buffed-Accessories-Mod\\niolsBuffedAccessories.csproj": {
+      "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Don\\Documents\\My Games\\Terraria\\ModLoader\\Beta\\Mod Sources\\niolsBuffedAccessories\\niolsBuffedAccessories.csproj",
+        "projectUniqueName": "C:\\Users\\Don\\Source\\Repos\\violn\\niols-Buffed-Accessories-Mod\\niolsBuffedAccessories.csproj",
         "projectName": "niolsBuffedAccessories",
-        "projectPath": "C:\\Users\\Don\\Documents\\My Games\\Terraria\\ModLoader\\Beta\\Mod Sources\\niolsBuffedAccessories\\niolsBuffedAccessories.csproj",
+        "projectPath": "C:\\Users\\Don\\Source\\Repos\\violn\\niols-Buffed-Accessories-Mod\\niolsBuffedAccessories.csproj",
         "packagesPath": "C:\\Users\\Don\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Don\\Documents\\My Games\\Terraria\\ModLoader\\Beta\\Mod Sources\\niolsBuffedAccessories\\obj\\",
+        "outputPath": "C:\\Users\\Don\\Source\\Repos\\violn\\niols-Buffed-Accessories-Mod\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

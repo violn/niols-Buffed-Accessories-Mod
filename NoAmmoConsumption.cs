@@ -11,7 +11,7 @@ namespace niolsBuffedAccessories.Buffed
             chance += AccessoryProperties.equippedRangerEmblem ? 10 : 0;
             chance += AccessoryProperties.equippedBuckler ? 2 : 0;
 
-            return BuffedAccessories.ran.Next(101) > chance;
+            return BuffedAccessories.ran.Next(100) > chance;
         }
     }
 }
