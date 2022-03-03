@@ -1,1 +1,1 @@
-﻿Corrected crossnecklace to work as intended.
+﻿Updated to work on latest tModLoader version.

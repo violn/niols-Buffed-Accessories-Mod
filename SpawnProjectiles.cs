@@ -10,7 +10,7 @@ namespace niolsBuffedAccessories
     {
         public static int beesSpawned = 0;
         public static int starsSpawned = 0;
-        public static void CreateBees(NPC target, int damage, bool strong, IProjectileSource source)
+        public static void CreateBees(NPC target, int damage, bool strong, IEntitySource source)
         {
             if (beesSpawned <= 25)
             {
@@ -28,7 +28,7 @@ namespace niolsBuffedAccessories
             }
         }
 
-        public static void CreateStars(NPC target, int damage, IProjectileSource source)
+        public static void CreateStars(NPC target, int damage, IEntitySource source)
         {
             Player player = Main.LocalPlayer;
             float targetXOffSet = BuffedAccessories.ran.Next(-350, 350);
@@ -50,7 +50,7 @@ namespace niolsBuffedAccessories
             }
         }
 
-        public static void CreateDuplicate(int type, Vector2 position, float speedX, float speedY, int damage, float knockBack, int amount, IProjectileSource source)
+        public static void CreateDuplicate(int type, Vector2 position, float speedX, float speedY, int damage, float knockBack, int amount, IEntitySource source)
         {
             for (int x = 0; x < amount; x++)
             {
