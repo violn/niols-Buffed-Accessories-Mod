@@ -15,7 +15,7 @@ namespace niolsBuffedAccessories
         {
             if (ModContent.GetInstance<Config>().AllBuffs)
             {
-                double current_stacks = Math.Round(MageEmblem.currentOnHitBoost * 100, 0);
+                double current_stacks = Math.Round(MageEmblem.CurrentOnHitBoost * 100, 0);
 
                 switch (item.type)
                 {
@@ -24,7 +24,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Bee
                                           select l)
                         {
-                            l.text += "\nAttacks have a chance to spawn bees";
+                            l.Text += "\nAttacks have a chance to spawn bees";
                         }
                         break;
 
@@ -33,7 +33,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Bee
                                           select l)
                         {
-                            l.text += "\nAttacks have a chance to spawn bees";
+                            l.Text += "\nAttacks have a chance to spawn bees";
                         }
                         break;
 
@@ -42,7 +42,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Bee
                                           select l)
                         {
-                            l.text += "\nAttacks have a chance to spawn bees";
+                            l.Text += "\nAttacks have a chance to spawn bees";
                         }
                         break;
 
@@ -51,7 +51,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Bee
                                           select l)
                         {
-                            l.text += "\nAttacks have a chance to spawn bees";
+                            l.Text += "\nAttacks have a chance to spawn bees";
                         }
                         break;
 
@@ -60,7 +60,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Bee
                                           select l)
                         {
-                            l.text += "\nAttacks have a chance to spawn bees";
+                            l.Text += "\nAttacks have a chance to spawn bees";
                         }
                         break;
 
@@ -69,7 +69,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0"
                                           select l)
                         {
-                            l.text += (ModContent.GetInstance<Config>().Bee ? "\nAttacks have a chance to spawn bees" : "") + (ModContent.GetInstance<Config>().Star ? "\nAttacks have a chance to spawn stars from the sky" : "");
+                            l.Text += (ModContent.GetInstance<Config>().Bee ? "\nAttacks have a chance to spawn bees" : "") + (ModContent.GetInstance<Config>().Star ? "\nAttacks have a chance to spawn stars from the sky" : "");
                         }
                         break;
 
@@ -78,7 +78,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Star
                                           select l)
                         {
-                            l.text += "\nAttacks have a chance to spawn stars from the sky";
+                            l.Text += "\nAttacks have a chance to spawn stars from the sky";
                         }
                         break;
 
@@ -87,7 +87,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Star
                                           select l)
                         {
-                            l.text += "\nAttacks have a chance to spawn stars from the sky";
+                            l.Text += "\nAttacks have a chance to spawn stars from the sky";
                         }
                         break;
 
@@ -96,7 +96,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0"
                                           select l)
                         {
-                            l.text += (ModContent.GetInstance<Config>().Star ? "\nAttacks have a chance to spawn stars from the sky" : "") + (ModContent.GetInstance<Config>().Cross ? "\nGain a chance to prevent death" : "");
+                            l.Text += (ModContent.GetInstance<Config>().Star ? "\nAttacks have a chance to spawn stars from the sky" : "") + (ModContent.GetInstance<Config>().Cross ? "\nGain a chance to prevent death" : "");
                         }
                         break;
 
@@ -106,7 +106,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Cross
                                           select l)
                         {
-                            l.text += "\nGain a chance to prevent death";
+                            l.Text += "\nGain a chance to prevent death";
                         }
                         break;
 
@@ -115,7 +115,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Sorceror
                                           select l)
                         {
-                            l.text += $"\n15% reduced mana usage\n+50 maximum mana\nDealing magic damage applies a magic stack that boosts magic damage\nCurrent stacks: {current_stacks}";
+                            l.Text += $"\n15% reduced mana usage\n+50 maximum mana\nDealing magic damage applies a magic stack that boosts magic damage\nCurrent stacks: {current_stacks}";
                         }
                         break;
 
@@ -124,7 +124,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().CelestialEmblem
                                           select l)
                         {
-                            l.text += $"\n+100 maximum mana\n17% reduced mana usage\nDealing magic damage applies a magic stack that boosts magic damage and mana regeneration\nCurrent stacks: {current_stacks}";
+                            l.Text += $"\n+100 maximum mana\n17% reduced mana usage\nDealing magic damage applies a magic stack that boosts magic damage and mana regeneration\nCurrent stacks: {current_stacks}";
                         }
                         break;
 
@@ -133,7 +133,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Ranger
                                           select l)
                         {
-                            l.text += "\n10% chance not to consume ammo\nRanged projectiles have a chance to duplicate";
+                            l.Text += "\n10% chance not to consume ammo\nRanged projectiles have a chance to duplicate";
                         }
                         break;
 
@@ -142,7 +142,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Rifle
                                           select l)
                         {
-                            l.text += "\nIncreased ranged damage based on distance";
+                            l.Text += "\nIncreased ranged damage based on distance";
                         }
                         break;
 
@@ -151,7 +151,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Sniper
                                           select l)
                         {
-                            l.text += "\n15% chance not to consume ammo\nRanged projectiles have a chance to duplicate\nIncreased ranged damage based on distance";
+                            l.Text += "\n15% chance not to consume ammo\nRanged projectiles have a chance to duplicate\nIncreased ranged damage based on distance";
                         }
                         break;
 
@@ -160,7 +160,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Recon
                                           select l)
                         {
-                            l.text += "\n15% chance not to consume ammo\nRanged projectiles have a chance to duplicate\nIncreased ranged damage based on distance";
+                            l.Text += "\n15% chance not to consume ammo\nRanged projectiles have a chance to duplicate\nIncreased ranged damage based on distance";
                         }
                         break;
 
@@ -169,7 +169,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Magic
                                           select l)
                         {
-                            l.text += "\nIncreased mana regeneration\n+3 magic damage";
+                            l.Text += "\nIncreased mana regeneration\n+3 magic damage";
                         }
                         break;
 
@@ -178,7 +178,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip2" && ModContent.GetInstance<Config>().CelestialCuffs
                                           select l)
                         {
-                            l.text += "\nIncreased mana regeneration\n+5 magic damage";
+                            l.Text += "\nIncreased mana regeneration\n+5 magic damage";
                         }
                         break;
 
@@ -187,7 +187,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Warrior
                                           select l)
                         {
-                            l.text += "\n8% increased melee critical strike chance\n10% increased movement speed\nKilling an enemy enhances your melee abilities";
+                            l.Text += "\n8% increased melee critical strike chance\n10% increased movement speed\nKilling an enemy enhances your melee abilities";
                         }
                         break;
 
@@ -196,7 +196,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Pygmy
                                           select l)
                         {
-                            l.text += "\nPrevents immunity frames creation of minions";
+                            l.Text += "\nPrevents immunity frames creation of minions";
                         }
                         break;
 
@@ -205,7 +205,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Defense" && ModContent.GetInstance<Config>().Shackle
                                           select l)
                         {
-                            l.text += "\n+1 damage";
+                            l.Text += "\n+1 damage";
                         }
                         break;
 
@@ -214,7 +214,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Summon
                                           select l)
                         {
-                            l.text += "\n+2 maximum minions and sentries";
+                            l.Text += "\n+2 maximum minions and sentries";
                         }
                         break;
 
@@ -223,14 +223,14 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Belt
                                           select l)
                         {
-                            l.text = "+1 maximum minions and sentries";
+                            l.Text = "+1 maximum minions and sentries";
                         }
 
                         foreach (var l in from TooltipLine l in tooltips
                                           where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Belt
                                           select l)
                         {
-                            l.text = "10% increased minion damage\n4% increased melee speed and damage\n4% increased melee critical strike chance\n5% increased movement speed";
+                            l.Text = "10% increased minion damage\n4% increased melee speed and damage\n4% increased melee critical strike chance\n5% increased movement speed";
                         }
                         break;
 
@@ -239,14 +239,14 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Shield
                                           select l)
                         {
-                            l.text = "+1 maximum minions and sentries";
+                            l.Text = "+1 maximum minions and sentries";
                         }
 
                         foreach (var l in from TooltipLine l in tooltips
                                           where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Shield
                                           select l)
                         {
-                            l.text = "10% increased minion damage\n2% increased melee damage\n4% increased melee critical strike chance\n5% increased movement speed\nIncreased health regeneration";
+                            l.Text = "10% increased minion damage\n2% increased melee damage\n4% increased melee critical strike chance\n5% increased movement speed\nIncreased health regeneration";
                         }
                         break;
 
@@ -255,14 +255,14 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Scarf
                                           select l)
                         {
-                            l.text = "+1 maximum minions and sentries";
+                            l.Text = "+1 maximum minions and sentries";
                         }
 
                         foreach (var l in from TooltipLine l in tooltips
                                           where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Scarf
                                           select l)
                         {
-                            l.text = "10% increased minion damage\n4% increased magic damage and critical strike chance\n3% reduced mana usage\n4% increased movement speed";
+                            l.Text = "10% increased minion damage\n4% increased magic damage and critical strike chance\n3% reduced mana usage\n4% increased movement speed";
                         }
                         break;
 
@@ -271,14 +271,14 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Buckler
                                           select l)
                         {
-                            l.text = "+1 maximum minions and sentries";
+                            l.Text = "+1 maximum minions and sentries";
                         }
 
                         foreach (var l in from TooltipLine l in tooltips
                                           where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Buckler
                                           select l)
                         {
-                            l.text = "10% increased minion damage\n4% increased ranged damage\n4% ranged critical strike chance\n4% increased movement speed\n2% chance not to consume ammo";
+                            l.Text = "10% increased minion damage\n4% increased ranged damage\n4% ranged critical strike chance\n4% increased movement speed\n2% chance not to consume ammo";
                         }
                         break;
 
@@ -287,7 +287,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Glove
                                           select l)
                         {
-                            l.text += "\n12% increased melee damage, speed, and critical strike chance\n17% increased movement speed";
+                            l.Text += "\n12% increased melee damage, speed, and critical strike chance\n17% increased movement speed";
                         }
                         break;
 
@@ -296,7 +296,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Gauntlet
                                           select l)
                         {
-                            l.text += "\n15% increased melee damage, speed, and critical strike chance\n20% increased movement speed";
+                            l.Text += "\n15% increased melee damage, speed, and critical strike chance\n20% increased movement speed";
                         }
                         break;
                 }

@@ -8,21 +8,21 @@ namespace niolsBuffedAccessories
 {
     public class AccessoryProperties : GlobalItem
     {
-        public static bool equippedBee = false;
-        public static bool equippedStar = false;
-        public static bool equippedRangerEmblem = false;
-        public static bool equippedRifleScope = false;
-        public static bool equippedSorcerorEmblem = false;
-        public static bool equippedCelestialEmblem = false;
-        public static bool equippedWarriorEmblem = false;
-        public static bool equippedYoyoBag = false;
-        public static bool equippedShackle = false;
-        public static bool equippedMagicCuffs = false;
-        public static bool equippedCelestialCuffs = false;
-        public static bool equippedCrossNecklace = false;
-        public static bool equippedPygmyNecklace = false;
-        public static bool equippedBuckler = false;
-        public static bool equippedHive = false;
+        public static bool EquippedBee = false;
+        public static bool EquippedStar = false;
+        public static bool EquippedRangerEmblem = false;
+        public static bool EquippedRifleScope = false;
+        public static bool EquippedSorcerorEmblem = false;
+        public static bool EquippedCelestialEmblem = false;
+        public static bool EquippedWarriorEmblem = false;
+        public static bool EquippedYoyoBag = false;
+        public static bool EquippedShackle = false;
+        public static bool EquippedMagicCuffs = false;
+        public static bool EquippedCelestialCuffs = false;
+        public static bool EquippedCrossNecklace = false;
+        public static bool EquippedPygmyNecklace = false;
+        public static bool EquippedBuckler = false;
+        public static bool EquippedHive = false;
 
         public override void UpdateAccessory(Item item, Player player, bool hideVisual)
         {
@@ -31,47 +31,47 @@ namespace niolsBuffedAccessories
                 switch (item.type)
                 {
                     case ItemID.HoneyComb:
-                        equippedBee = true;
+                        EquippedBee = true;
                         break;
 
                     case ItemID.HoneyBalloon:
-                        equippedBee = true;
+                        EquippedBee = true;
                         break;
 
                     case ItemID.BalloonHorseshoeHoney:
-                        equippedBee = true;
+                        EquippedBee = true;
                         break;
 
                     case ItemID.StingerNecklace:
-                        equippedBee = true;
+                        EquippedBee = true;
                         break;
 
                     case ItemID.SweetheartNecklace:
-                        equippedBee = true;
+                        EquippedBee = true;
                         break;
 
                     case ItemID.BeeCloak:
-                        equippedBee = equippedStar = true;
+                        EquippedBee = EquippedStar = true;
                         break;
 
                     case ItemID.StarCloak:
-                        equippedStar = true;
+                        EquippedStar = true;
                         break;
 
                     case ItemID.ManaCloak:
-                        equippedStar = true;
+                        EquippedStar = true;
                         break;
 
                     case ItemID.StarVeil:
-                        equippedStar = equippedCrossNecklace = true;
+                        EquippedStar = EquippedCrossNecklace = true;
                         break;
 
                     case ItemID.CrossNecklace:
-                        equippedCrossNecklace = true;
+                        EquippedCrossNecklace = true;
                         break;
 
                     case ItemID.HiveBackpack:
-                        equippedHive = true;
+                        EquippedHive = true;
                         break;
 
                     case ItemID.BandofRegeneration:
@@ -89,43 +89,43 @@ namespace niolsBuffedAccessories
                         break;
 
                     case ItemID.SorcererEmblem:
-                        equippedSorcerorEmblem = ModContent.GetInstance<Config>().Sorceror;
+                        EquippedSorcerorEmblem = ModContent.GetInstance<Config>().Sorceror;
                         break;
 
                     case ItemID.CelestialEmblem:
                         if (ModContent.GetInstance<Config>().CelestialEmblem)
                         {
-                            player.manaRegenBonus += MageEmblem.celestialRegen;
+                            player.manaRegenBonus += MageEmblem.CelestialRegen;
                             player.manaRegenDelayBonus += 5;
                             player.statManaMax2 += 100;
                             player.manaCost *= .82f;
-                            equippedSorcerorEmblem = true;
-                            equippedCelestialEmblem = true;
+                            EquippedSorcerorEmblem = true;
+                            EquippedCelestialEmblem = true;
                         }
                         break;
 
                     case ItemID.RangerEmblem:
-                        equippedRangerEmblem = ModContent.GetInstance<Config>().Ranger;
+                        EquippedRangerEmblem = ModContent.GetInstance<Config>().Ranger;
                         break;
 
                     case ItemID.RifleScope:
-                        equippedRifleScope = ModContent.GetInstance<Config>().Rifle;
+                        EquippedRifleScope = ModContent.GetInstance<Config>().Rifle;
                         break;
 
                     case ItemID.SniperScope:
-                        equippedRangerEmblem = equippedRifleScope = ModContent.GetInstance<Config>().Sniper;
+                        EquippedRangerEmblem = EquippedRifleScope = ModContent.GetInstance<Config>().Sniper;
                         break;
 
                     case ItemID.ReconScope:
-                        equippedRangerEmblem = equippedRifleScope = ModContent.GetInstance<Config>().Recon;
+                        EquippedRangerEmblem = EquippedRifleScope = ModContent.GetInstance<Config>().Recon;
                         break;
 
                     case ItemID.MagicCuffs:
-                        equippedMagicCuffs = ModContent.GetInstance<Config>().Magic;
+                        EquippedMagicCuffs = ModContent.GetInstance<Config>().Magic;
                         break;
 
                     case ItemID.CelestialCuffs:
-                        equippedCelestialCuffs = ModContent.GetInstance<Config>().CelestialCuffs;
+                        EquippedCelestialCuffs = ModContent.GetInstance<Config>().CelestialCuffs;
                         break;
 
                     case ItemID.SummonerEmblem:
@@ -142,7 +142,7 @@ namespace niolsBuffedAccessories
                             player.maxRunSpeed += 0.27f;
                             player.moveSpeed += .10f;
                             player.GetCritChance(DamageClass.Melee) += 8;
-                            equippedWarriorEmblem = true;
+                            EquippedWarriorEmblem = true;
                         }
                         break;
 
@@ -150,7 +150,7 @@ namespace niolsBuffedAccessories
                         if (ModContent.GetInstance<Config>().Belt)
                         {
                             player.maxMinions += 1;
-                            player.meleeSpeed += .04f;
+                            player.GetAttackSpeed(DamageClass.Melee) += .04f;
                             player.maxRunSpeed += 0.27f;
                             player.moveSpeed += .05f;
                             player.GetDamage(DamageClass.Melee) += .04f;
@@ -194,7 +194,7 @@ namespace niolsBuffedAccessories
                             player.GetDamage(DamageClass.Ranged) += .04f;
                             player.GetDamage(DamageClass.Summon) += .05f;
                             player.GetCritChance(DamageClass.Ranged) += 4;
-                            equippedBuckler = true;
+                            EquippedBuckler = true;
                         }
                         break;
 
@@ -204,7 +204,7 @@ namespace niolsBuffedAccessories
                             player.maxRunSpeed += 0.47f;
                             player.moveSpeed += 0.17f;
                             player.GetCritChance(DamageClass.Melee) += 12;
-                            equippedWarriorEmblem = true;
+                            EquippedWarriorEmblem = true;
                         }
                         break;
 
@@ -215,21 +215,21 @@ namespace niolsBuffedAccessories
                             player.moveSpeed += 0.20f;
                             player.GetDamage(DamageClass.Melee) += .03f;
                             player.GetCritChance(DamageClass.Melee) += 16;
-                            player.meleeSpeed += 0.04f;
-                            equippedWarriorEmblem = true;
+                            player.GetAttackSpeed(DamageClass.Melee) += 0.04f;
+                            EquippedWarriorEmblem = true;
                         }
                         break;
 
                     case ItemID.PygmyNecklace:
-                        equippedPygmyNecklace = ModContent.GetInstance<Config>().Pygmy;
+                        EquippedPygmyNecklace = ModContent.GetInstance<Config>().Pygmy;
                         break;
 
                     case ItemID.Shackle:
-                        equippedShackle = ModContent.GetInstance<Config>().Shackle;
+                        EquippedShackle = ModContent.GetInstance<Config>().Shackle;
                         break;
 
                     case ItemID.YoyoBag:
-                        equippedYoyoBag = ModContent.GetInstance<Config>().Yoyo;
+                        EquippedYoyoBag = ModContent.GetInstance<Config>().Yoyo;
                         break;
                 }
             }

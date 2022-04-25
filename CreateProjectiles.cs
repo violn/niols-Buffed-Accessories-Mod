@@ -25,18 +25,18 @@ namespace niolsBuffedAccessories.Buffed
         {
             if (!blacklistedProjectiles.Contains(proj.type))
             {
-                if (AccessoryProperties.equippedBee && ModContent.GetInstance<Config>().Bee && SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
+                if (AccessoryProperties.EquippedBee && ModContent.GetInstance<Config>().Bee && SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
                 {
-                    if (AccessoryProperties.equippedHive && BuffedAccessories.ran.Next(2) == 0)
+                    if (AccessoryProperties.EquippedHive && BuffedAccessories.Ran.Next(2) == 0)
                     {
-                        SpawnProjectiles.CreateBees(target, damage, true, proj.GetProjectileSource_FromThis());
+                        SpawnProjectiles.CreateBees(target, damage, true, proj.GetSource_FromThis());
                     }
-                    else SpawnProjectiles.CreateBees(target, damage, false, proj.GetProjectileSource_FromThis());
+                    else SpawnProjectiles.CreateBees(target, damage, false, proj.GetSource_FromThis());
                 }
 
-                if (AccessoryProperties.equippedStar && ModContent.GetInstance<Config>().Star && SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
+                if (AccessoryProperties.EquippedStar && ModContent.GetInstance<Config>().Star && SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
                 {
-                    SpawnProjectiles.CreateStars(target, damage, proj.GetProjectileSource_FromThis());
+                    SpawnProjectiles.CreateStars(target, damage, proj.GetSource_FromThis());
                 }
             }
         }
@@ -45,10 +45,10 @@ namespace niolsBuffedAccessories.Buffed
         {
             if (time > 25)
             {
-                return BuffedAccessories.ran.Next(101) < Math.Pow(time, 2f) / 25f;
+                return BuffedAccessories.Ran.Next(101) < Math.Pow(time, 2f) / 25f;
             }
 
-            return BuffedAccessories.ran.Next(101) < time;
+            return BuffedAccessories.Ran.Next(101) < time;
         }
     }
 }

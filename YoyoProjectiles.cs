@@ -6,9 +6,9 @@ namespace niolsBuffedAccessories
 {
     public class YoyoProjectiles : GlobalProjectile
     {
-        public static List<int> yoyoProjectiles = new();
+        public static List<int> YoyoProjectilesList = new();
 
-        public static List<int> countweightBlackList = new()
+        public static List<int> CountweightBlackList = new()
         {
             556,
             557,
@@ -20,9 +20,9 @@ namespace niolsBuffedAccessories
 
         public override void SetDefaults(Projectile proj)
         {
-            if (!yoyoProjectiles.Contains(proj.type) && proj.aiStyle == 99 && !countweightBlackList.Contains(proj.type))
+            if (!YoyoProjectilesList.Contains(proj.type) && proj.aiStyle == 99 && !CountweightBlackList.Contains(proj.type))
             {
-                yoyoProjectiles.Add(proj.type);
+                YoyoProjectilesList.Add(proj.type);
             }
         }
     }

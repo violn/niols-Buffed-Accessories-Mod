@@ -9,9 +9,9 @@ namespace niolsBuffedAccessories.Buffed
     {
         public override void ModifyShootStats(Item item, Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
         {
-            if (AccessoryProperties.equippedRangerEmblem && item.DamageType == DamageClass.Ranged && CreateProjectiles.SpawnProjectile(item.useTime))
+            if (AccessoryProperties.EquippedRangerEmblem && item.DamageType == DamageClass.Ranged && CreateProjectiles.SpawnProjectile(item.useTime))
             {
-                SpawnProjectiles.CreateDuplicate(type, position, velocity.X, velocity.Y, damage, knockback, 1, player.GetProjectileSource_Item(item));
+                SpawnProjectiles.CreateDuplicate(type, position, velocity.X, velocity.Y, damage, knockback, 1, player.GetSource_ItemUse(item));
             }
 
             base.ModifyShootStats(item, player, ref position, ref velocity, ref type, ref damage, ref knockback);

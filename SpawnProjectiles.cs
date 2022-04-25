@@ -8,33 +8,33 @@ namespace niolsBuffedAccessories
 {
     public class SpawnProjectiles : GlobalProjectile
     {
-        public static int beesSpawned = 0;
-        public static int starsSpawned = 0;
+        public static int BeesSpawned = 0;
+        public static int StarsSpawned = 0;
         public static void CreateBees(NPC target, int damage, bool strong, IEntitySource source)
         {
-            if (beesSpawned <= 25)
+            if (BeesSpawned <= 25)
             {
                 Projectile.NewProjectileDirect
                     (source,
-                    new(target.position.X + BuffedAccessories.ran.Next(-10, 10), target.position.Y + BuffedAccessories.ran.Next(-10, -5)),
-                    new(BuffedAccessories.ran.Next(-15, 15), BuffedAccessories.ran.Next(-15, -2)),
+                    new(target.position.X + BuffedAccessories.Ran.Next(-10, 10), target.position.Y + BuffedAccessories.Ran.Next(-10, -5)),
+                    new(BuffedAccessories.Ran.Next(-15, 15), BuffedAccessories.Ran.Next(-15, -2)),
                     strong ? ProjectileID.GiantBee : ProjectileID.Bee,
                     (int)((damage * (strong ? .325f : .225f)) + 1f),
                     strong ? .5f : 0f,
                     Main.myPlayer).usesLocalNPCImmunity = true;
 
-                beesSpawned++;
-                Timers.beeTimer = 0;
+                BeesSpawned++;
+                Timers.BeeTimer = 0;
             }
         }
 
         public static void CreateStars(NPC target, int damage, IEntitySource source)
         {
             Player player = Main.LocalPlayer;
-            float targetXOffSet = BuffedAccessories.ran.Next(-350, 350);
+            float targetXOffSet = BuffedAccessories.Ran.Next(-350, 350);
             float xVelocity = targetXOffSet * (-1f / 35f);
 
-            if (starsSpawned <= 35)
+            if (StarsSpawned <= 35)
             {
                 Projectile.NewProjectileDirect
                     (source,
@@ -45,8 +45,8 @@ namespace niolsBuffedAccessories
                     1f,
                     Main.myPlayer).usesLocalNPCImmunity = true;
 
-                starsSpawned++;
-                Timers.starTimer = 0;
+                StarsSpawned++;
+                Timers.StarTimer = 0;
             }
         }
 
@@ -59,8 +59,8 @@ namespace niolsBuffedAccessories
 
                 while (projOffsetSpeedY == 0 && projOffestSpeedX == 0)
                 {
-                    projOffsetSpeedY = BuffedAccessories.ran.Next(-1, 1);
-                    projOffestSpeedX = BuffedAccessories.ran.Next(-1, 1);
+                    projOffsetSpeedY = BuffedAccessories.Ran.Next(-1, 1);
+                    projOffestSpeedX = BuffedAccessories.Ran.Next(-1, 1);
                 }
 
                 Projectile.NewProjectileDirect

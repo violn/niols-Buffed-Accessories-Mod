@@ -8,10 +8,10 @@ namespace niolsBuffedAccessories.Buffed
         public override bool CanConsumeAmmo(Item item, Player player)
         {
             int chance = 0;
-            chance += AccessoryProperties.equippedRangerEmblem ? 10 : 0;
-            chance += AccessoryProperties.equippedBuckler ? 2 : 0;
+            chance += AccessoryProperties.EquippedRangerEmblem ? 10 : 0;
+            chance += AccessoryProperties.EquippedBuckler ? 2 : 0;
 
-            return BuffedAccessories.ran.Next(100) > chance;
+            return BuffedAccessories.Ran.Next(100) > chance;
         }
     }
 }

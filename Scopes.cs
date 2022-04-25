@@ -12,7 +12,7 @@ namespace niolsBuffedAccessories.Buffed
 
         public override void ModifyHitNPC(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
-            if (proj.DamageType == DamageClass.Ranged && (AccessoryProperties.equippedRifleScope))
+            if (proj.DamageType == DamageClass.Ranged && (AccessoryProperties.EquippedRifleScope))
             {
                 targetPosition = new Vector2(target.position.X, target.position.Y);
                 damage = CalculateRangedDamage(damage);
