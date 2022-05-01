@@ -8,7 +8,7 @@ namespace niolsBuffedAccessories
     {
         public static List<int> YoyoProjectilesList = new();
 
-        public static List<int> CountweightBlackList = new()
+        public static List<int> CounterweightBlackList = new()
         {
             556,
             557,
@@ -20,7 +20,7 @@ namespace niolsBuffedAccessories
 
         public override void SetDefaults(Projectile proj)
         {
-            if (!YoyoProjectilesList.Contains(proj.type) && proj.aiStyle == 99 && !CountweightBlackList.Contains(proj.type))
+            if (!YoyoProjectilesList.Contains(proj.type) && proj.aiStyle == 99 && !CounterweightBlackList.Contains(proj.type))
             {
                 YoyoProjectilesList.Add(proj.type);
             }
