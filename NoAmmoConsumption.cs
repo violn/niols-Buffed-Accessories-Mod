@@ -5,7 +5,7 @@ namespace niolsBuffedAccessories.Buffed
 {
     public class NoAmmoConsumption : GlobalItem
     {
-        public override bool CanConsumeAmmo(Item item, Player player)
+        public override bool CanConsumeAmmo(Item weapon, Item ammo, Player player)
         {
             int chance = 0;
             chance += AccessoryProperties.EquippedRangerEmblem ? 10 : 0;
