@@ -10,14 +10,21 @@ namespace niolsBuffedAccessories.Buffed
 
         public override void ModifyHitNPC(Projectile projectile, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
-            if (projectile.DamageType == DamageClass.Magic && AccessoryProperties.EquippedSorcerorEmblem)
+            if (projectile.DamageType == DamageClass.Magic && AccessoryProperties.MagicStacking)
             {
                 Timers.MagicStacksDelay = 0;
                 Timers.MagicCounter = 0;
                 float stacks_gained = Main.LocalPlayer.HeldItem.useTime / 2000f;
-                CurrentOnHitBoost = stacks_gained + CurrentOnHitBoost > .2f ? .2f : stacks_gained + CurrentOnHitBoost;
+
+                CurrentOnHitBoost = 
+                    stacks_gained + CurrentOnHitBoost > .2f ? 
+                    .2f : stacks_gained + CurrentOnHitBoost;
+
                 damage = (int)(damage * (1f + CurrentOnHitBoost));
-                CelestialRegen = AccessoryProperties.EquippedCelestialEmblem && CelestialRegen < 40 ? (int)(CelestialRegen + CurrentOnHitBoost * 100) : CelestialRegen;
+
+                CelestialRegen = 
+                    AccessoryProperties.MagicStacking && CelestialRegen < 40 ? 
+                    (int)(CelestialRegen + CurrentOnHitBoost * 100) : CelestialRegen;
             }
         }
     }

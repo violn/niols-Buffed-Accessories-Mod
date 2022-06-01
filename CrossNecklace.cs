@@ -7,7 +7,7 @@ namespace niolsBuffedAccessories.Buffed
     {
         public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
         {
-            if (AccessoryProperties.EquippedCrossNecklace && BuffedAccessories.Ran.Next(100) < 5 && damage > Player.statLife)
+            if (AccessoryProperties.DeathPrevention && BuffedAccessories.Ran.Next(100) < 5 && damage > Player.statLife)
             {
                 if (Player.statLife == 1)
                 {

@@ -12,21 +12,21 @@ namespace niolsBuffedAccessories
     {
         public override void ResetEffects()
         {
-            AccessoryProperties.EquippedBee = false;
-            AccessoryProperties.EquippedStar = false;
-            AccessoryProperties.EquippedHive = false;
-            AccessoryProperties.EquippedRangerEmblem = false;
-            AccessoryProperties.EquippedRifleScope = false;
-            AccessoryProperties.EquippedSorcerorEmblem = false;
-            AccessoryProperties.EquippedCelestialEmblem = false;
-            AccessoryProperties.EquippedWarriorEmblem = false;
-            AccessoryProperties.EquippedBuckler = false;
-            AccessoryProperties.EquippedYoyoBag = false;
-            AccessoryProperties.EquippedShackle = false;
+            AccessoryProperties.SpawmBees = false;
+            AccessoryProperties.SpawnStars = false;
+            AccessoryProperties.StrongBees = false;
+            AccessoryProperties.RangedDupe = false;
+            AccessoryProperties.ScopeIncrease = false;
+            AccessoryProperties.MagicStacking = false;
+            AccessoryProperties.BeserkerRage = false;
+            AccessoryProperties.YoyoDupe = false;
+            AccessoryProperties.DeathPrevention = false;
+            AccessoryProperties.SummonImmunity = false;
+            AccessoryProperties.EquippedStalkersQuiver = false;
             AccessoryProperties.EquippedMagicCuffs = false;
             AccessoryProperties.EquippedCelestialCuffs = false;
-            AccessoryProperties.EquippedCrossNecklace = false;
-            AccessoryProperties.EquippedPygmyNecklace = false;
+            AccessoryProperties.EquippedShackle = false;
+            AccessoryProperties.EquippedHuntressBuckler = false;
         }
     }
 }

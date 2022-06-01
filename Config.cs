@@ -7,106 +7,60 @@ namespace niolsBuffedAccessories.Configs
     {
         public override ConfigScope Mode => ConfigScope.ClientSide;
 
-        [Header("Item Toggles")]
-        [Label("Items Buffs")]
-        [Tooltip("Toggle item stats and property buffs.")]
+        [Header("Buff Toggles")]
+        [Label("Item Buffs")]
+        [Tooltip("Toggles the buffed accessories")]
         [DefaultValue(true)]
         public bool AllBuffs;
 
-        [Label("Shackle")]
+        [Label("Bee Spawning")]
+        [Tooltip("Toggles bee spawning items. (Items that have the honey comb in their recipe)")]
         [DefaultValue(true)]
-        public bool Shackle;
+        public bool SpawnBees;
 
-        [Label("Bee")]
+        [Label("Star Spawning")]
+        [Tooltip("Toggles star spawning items. (Items that have the star cloak in their recipe)")]
         [DefaultValue(true)]
-        public bool Bee;
+        public bool SpawnStars;
 
-        [Label("Star")]
+        [Label("Strong Bee Spawning")]
+        [Tooltip("Toggles strong bee spawning items. (Hive Pack)")]
         [DefaultValue(true)]
-        public bool Star;
+        public bool StrongBee;
 
-        [Label("Band of Regeneration")]
+        [Label("Ranged Duplication")]
+        [Tooltip("Toggles ranged projectile duplication items. (Ranger Emblem, Sniper Scope)")]
         [DefaultValue(true)]
-        public bool Band;
+        public bool RangedDupe;
 
-        [Label("Charm of Myths")]
+        [Label("Scope Damage Increase")]
+        [Tooltip("Toggles damage increasing based on distance items. (Recon Scope, Sniper Scope, Rifle Scope)")]
         [DefaultValue(true)]
-        public bool Charm;
+        public bool ScopeIncrease;
 
-        [Label("Ranger Emblem")]
+        [Label("Magic Stacks")]
+        [Tooltip("Toggles items that give magic stacks. (Sorcerer Emblem, Celestial Emblem)")]
         [DefaultValue(true)]
-        public bool Ranger;
+        public bool MagicStacking;
 
-        [Label("Rifle Scope")]
+        [Label("Extra Yoyo")]
+        [Tooltip("Toggles items that spawn an extra yoyo prjectile. (Yoyo Bag)")]
         [DefaultValue(true)]
-        public bool Rifle;
+        public bool ExtraYoyo;
 
-        [Label("Sniper Scope")]
+        [Label("Death Prevention")]
+        [Tooltip("Toggles items that prevent death. (Cross Necklace)")]
         [DefaultValue(true)]
-        public bool Sniper;
+        public bool DeathPrevention;
 
-        [Label("Sorceror Emblem")]
+        [Label("Remove Summon I-Frames")]
+        [Tooltip("Toggles items that remove the summon iframes. (Pygmy Necklace)")]
         [DefaultValue(true)]
-        public bool Sorceror;
+        public bool SummonImmunity;
 
-        [Label("Celestial Emblem")]
+        [Label("BeserkerRage")]
+        [Tooltip("Toggles the enhance mana regeneration buff. (Items that have the star cloak in their recipe)")]
         [DefaultValue(true)]
-        public bool CelestialEmblem;
-
-        [Label("Warrior Emblem")]
-        [DefaultValue(true)]
-        public bool Warrior;
-
-        [Label("Mech Glove")]
-        [DefaultValue(true)]
-        public bool Glove;
-
-        [Label("Fire Gauntlet")]
-        [DefaultValue(true)]
-        public bool Gauntlet;
-
-        [Label("Yoyo Bag")]
-        [DefaultValue(true)]
-        public bool Yoyo;
-
-        [Label("Magic Cuffs")]
-        [DefaultValue(true)]
-        public bool Magic;
-
-        [Label("Celestial Cuffs")]
-        [DefaultValue(true)]
-        public bool CelestialCuffs;
-
-        [Label("Cross Necklace")]
-        [DefaultValue(true)]
-        public bool Cross;
-
-        [Label("Pygmy Necklace")]
-        [DefaultValue(true)]
-        public bool Pygmy;
-
-        [Label("Summoner Emblem")]
-        [DefaultValue(true)]
-        public bool Summon;
-
-        [Label("Monk Belt")]
-        [DefaultValue(true)]
-        public bool Belt;
-
-        [Label("Apprentice Scarf")]
-        [DefaultValue(true)]
-        public bool Scarf;
-
-        [Label("Squire Shield")]
-        [DefaultValue(true)]
-        public bool Shield;
-
-        [Label("Huntress Buckler")]
-        [DefaultValue(true)]
-        public bool Buckler;
-
-        [Label("Recon Scope")]
-        [DefaultValue(true)]
-        public bool Recon;
+        public bool BeserkerRage;
     }
 }

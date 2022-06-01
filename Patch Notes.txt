@@ -1,1 +1,3 @@
-﻿Updated to work on latest tModLoader version.
+﻿Added the effects of the putrid scent to the Stalker's Quiver and the Arcane Flower.
+Consolidated config options to special effects.
+Updated to latest build.

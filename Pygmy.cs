@@ -10,7 +10,7 @@ namespace niolsBuffedAccessories.Buffed
 
         public override void OnHitNPC(Projectile proj, NPC target, int damage, float knockback, bool crit)
         {
-            if ((proj.sentry || proj.minion) && AccessoryProperties.EquippedPygmyNecklace && !proj.usesLocalNPCImmunity)
+            if ((proj.sentry || proj.minion) && AccessoryProperties.SummonImmunity && !proj.usesLocalNPCImmunity)
             {
                 proj.usesLocalNPCImmunity = true;
                 modifiedProjectiles.Add(proj);

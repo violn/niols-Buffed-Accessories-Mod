@@ -40,7 +40,7 @@ namespace niolsBuffedAccessories
                     (source,
                     new(target.position.X + targetXOffSet, player.position.Y - 700f),
                     new(xVelocity, 20f),
-                    ProjectileID.StarCannonStar,
+                    ProjectileID.StarCloakStar,
                     (int)((damage * .80f) + 1f),
                     1f,
                     Main.myPlayer).usesLocalNPCImmunity = true;

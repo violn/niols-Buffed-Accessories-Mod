@@ -21,46 +21,46 @@ namespace niolsBuffedAccessories
                 {
                     case ItemID.HoneyComb:
                         foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Bee
+                                          where l.Name == "Tooltip0"
                                           select l)
                         {
-                            l.Text += "\nAttacks have a chance to spawn bees";
+                            l.Text += ModContent.GetInstance<Config>().SpawnBees ? "\nAttacks have a chance to spawn bees" : "";
                         }
                         break;
 
                     case ItemID.HoneyBalloon:
                         foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Bee
+                                          where l.Name == "Tooltip1"
                                           select l)
                         {
-                            l.Text += "\nAttacks have a chance to spawn bees";
+                            l.Text += ModContent.GetInstance<Config>().SpawnBees ? "\nAttacks have a chance to spawn bees" : "";
                         }
                         break;
 
                     case ItemID.BalloonHorseshoeHoney:
                         foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Bee
+                                          where l.Name == "Tooltip1"
                                           select l)
                         {
-                            l.Text += "\nAttacks have a chance to spawn bees";
+                            l.Text += ModContent.GetInstance<Config>().SpawnBees ? "\nAttacks have a chance to spawn bees" : "";
                         }
                         break;
 
                     case ItemID.StingerNecklace:
                         foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Bee
+                                          where l.Name == "Tooltip1"
                                           select l)
                         {
-                            l.Text += "\nAttacks have a chance to spawn bees";
+                            l.Text += ModContent.GetInstance<Config>().SpawnBees ? "\nAttacks have a chance to spawn bees" : "";
                         }
                         break;
 
                     case ItemID.SweetheartNecklace:
                         foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Bee
+                                          where l.Name == "Tooltip0"
                                           select l)
                         {
-                            l.Text += "\nAttacks have a chance to spawn bees";
+                            l.Text += ModContent.GetInstance<Config>().SpawnBees ? "\nAttacks have a chance to spawn bees" : "";
                         }
                         break;
 
@@ -69,25 +69,26 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0"
                                           select l)
                         {
-                            l.Text += (ModContent.GetInstance<Config>().Bee ? "\nAttacks have a chance to spawn bees" : "") + (ModContent.GetInstance<Config>().Star ? "\nAttacks have a chance to spawn stars from the sky" : "");
+                            l.Text += (ModContent.GetInstance<Config>().SpawnBees ? "\nAttacks have a chance to spawn bees" : "") + 
+                                (ModContent.GetInstance<Config>().SpawnStars ? "\nAttacks have a chance to spawn stars from the sky" : "");
                         }
                         break;
 
                     case ItemID.StarCloak:
                         foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Star
+                                          where l.Name == "Tooltip0"
                                           select l)
                         {
-                            l.Text += "\nAttacks have a chance to spawn stars from the sky";
+                            l.Text += ModContent.GetInstance<Config>().SpawnStars ? "\nAttacks have a chance to spawn stars from the sky" : "";
                         }
                         break;
 
                     case ItemID.ManaCloak:
                         foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Star
+                                          where l.Name == "Tooltip0"
                                           select l)
                         {
-                            l.Text += "\nAttacks have a chance to spawn stars from the sky";
+                            l.Text += ModContent.GetInstance<Config>().SpawnStars ? "\nAttacks have a chance to spawn stars from the sky" : "";
                         }
                         break;
 
@@ -96,123 +97,115 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0"
                                           select l)
                         {
-                            l.Text += (ModContent.GetInstance<Config>().Star ? "\nAttacks have a chance to spawn stars from the sky" : "") + (ModContent.GetInstance<Config>().Cross ? "\nGain a chance to prevent death" : "");
+                            l.Text += (ModContent.GetInstance<Config>().SpawnStars ? "\nAttacks have a chance to spawn stars from the sky" : "") + 
+                                (ModContent.GetInstance<Config>().DeathPrevention ? "\nGain a chance to prevent death" : "");
                         }
                         break;
 
 
                     case ItemID.CrossNecklace:
                         foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Cross
+                                          where l.Name == "Tooltip0"
                                           select l)
                         {
-                            l.Text += "\nGain a chance to prevent death";
+                            l.Text += ModContent.GetInstance<Config>().DeathPrevention ? "\nGain a chance to prevent death" : "";
                         }
                         break;
 
                     case ItemID.SorcererEmblem:
                         foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Sorceror
+                                          where l.Name == "Tooltip0"
                                           select l)
                         {
-                            l.Text += $"\n15% reduced mana usage\n+50 maximum mana\nDealing magic damage applies a magic stack that boosts magic damage\nCurrent stacks: {current_stacks}";
+                            l.Text +=
+                                $"\n15% reduced mana usage\n+50 maximum mana" +
+                                $"{(ModContent.GetInstance<Config>().MagicStacking ? $"\nDealing magic damage applies a magic stack that boosts magic damage\nCurrent stacks: {current_stacks}" : "")}";
                         }
                         break;
 
                     case ItemID.CelestialEmblem:
                         foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().CelestialEmblem
+                                          where l.Name == "Tooltip1"
                                           select l)
                         {
-                            l.Text += $"\n+100 maximum mana\n17% reduced mana usage\nDealing magic damage applies a magic stack that boosts magic damage and mana regeneration\nCurrent stacks: {current_stacks}";
+                            l.Text += $"\n+100 maximum mana\n17% reduced mana usage" +
+                                $"{(ModContent.GetInstance<Config>().MagicStacking ? $"\nDealing magic damage applies a magic stack that boosts magic damage and mana regeneration\nCurrent stacks: {current_stacks}" : "")}";
                         }
                         break;
 
                     case ItemID.RangerEmblem:
                         foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Ranger
+                                          where l.Name == "Tooltip0"
                                           select l)
                         {
-                            l.Text += "\n10% chance not to consume ammo\nRanged projectiles have a chance to duplicate";
+                            l.Text += $"\n10% chance not to consume ammo" +
+                                $"{(ModContent.GetInstance<Config>().RangedDupe ? "\nRanged projectiles have a chance to duplicate" : "")}";
                         }
                         break;
 
                     case ItemID.RifleScope:
-                        foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Rifle
-                                          select l)
+                        foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip0" select l)
                         {
-                            l.Text += "\nIncreased ranged damage based on distance";
+                            l.Text += ModContent.GetInstance<Config>().ScopeIncrease ? "\nIncreased ranged damage based on distance" : "";
                         }
                         break;
 
                     case ItemID.SniperScope:
-                        foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Sniper
-                                          select l)
+                        foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip1" select l)
                         {
-                            l.Text += "\n15% chance not to consume ammo\nRanged projectiles have a chance to duplicate\nIncreased ranged damage based on distance";
+                            l.Text += $"\n15% chance not to consume ammo" +
+                                $"{(ModContent.GetInstance<Config>().RangedDupe ? "\nRanged projectiles have a chance to duplicate" : "")}" +
+                                $"{(ModContent.GetInstance<Config>().ScopeIncrease ? "\nIncreased ranged damage based on distance" : "")}";
                         }
                         break;
 
                     case ItemID.ReconScope:
-                        foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Recon
-                                          select l)
+                        foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip1" select l)
                         {
-                            l.Text += "\n15% chance not to consume ammo\nRanged projectiles have a chance to duplicate\nIncreased ranged damage based on distance";
+                            l.Text += $"\n15% chance not to consume ammo" +
+                                $"{(ModContent.GetInstance<Config>().RangedDupe ? "\nRanged projectiles have a chance to duplicate" : "")}" +
+                                $"{(ModContent.GetInstance<Config>().ScopeIncrease ? "\nIncreased ranged damage based on distance" : "")}";
                         }
                         break;
 
                     case ItemID.MagicCuffs:
-                        foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Magic
-                                          select l)
+                        foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip1" select l)
                         {
-                            l.Text += "\nIncreased mana regeneration\n+3 magic damage";
+                            l.Text += "\nIncreased mana regeneration\n3 magic damage";
                         }
                         break;
 
                     case ItemID.CelestialCuffs:
-                        foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip2" && ModContent.GetInstance<Config>().CelestialCuffs
-                                          select l)
+                        foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip2" select l)
                         {
-                            l.Text += "\nIncreased mana regeneration\n+5 magic damage";
+                            l.Text += "\nIncreased mana regeneration\n5 magic damage";
                         }
                         break;
 
                     case ItemID.WarriorEmblem:
-                        foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Warrior
-                                          select l)
+                        foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip0" select l)
                         {
-                            l.Text += "\n8% increased melee critical strike chance\n10% increased movement speed\nKilling an enemy enhances your melee abilities";
+                            l.Text += $"\n8% increased melee critical strike chance\n10% increased movement speed" +
+                                $"{(ModContent.GetInstance<Config>().BeserkerRage ? "\nKilling an enemy enhances your melee abilities" : "")}";
                         }
                         break;
 
                     case ItemID.PygmyNecklace:
-                        foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Pygmy
-                                          select l)
+                        foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip0" select l)
                         {
-                            l.Text += "\nPrevents immunity frames creation of minions";
+                            l.Text += ModContent.GetInstance<Config>().SummonImmunity ? "\nPrevents immunity frames creation of minions" : "";
                         }
                         break;
 
                     case ItemID.Shackle:
-                        foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Defense" && ModContent.GetInstance<Config>().Shackle
-                                          select l)
+                        foreach (var l in from TooltipLine l in tooltips where l.Name == "Defense" select l)
                         {
-                            l.Text += "\n+1 damage";
+                            l.Text += "\n1 damage";
                         }
                         break;
 
                     case ItemID.SummonerEmblem:
-                        foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Summon
-                                          select l)
+                        foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip0" select l)
                         {
                             l.Text += "\n+2 maximum minions and sentries";
                         }
@@ -220,14 +213,14 @@ namespace niolsBuffedAccessories
 
                     case ItemID.MonkBelt:
                         foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Belt
+                                          where l.Name == "Tooltip0"
                                           select l)
                         {
                             l.Text = "+1 maximum minions and sentries";
                         }
 
                         foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Belt
+                                          where l.Name == "Tooltip1"
                                           select l)
                         {
                             l.Text = "10% increased minion damage\n4% increased melee speed and damage\n4% increased melee critical strike chance\n5% increased movement speed";
@@ -236,14 +229,14 @@ namespace niolsBuffedAccessories
 
                     case ItemID.SquireShield:
                         foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Shield
+                                          where l.Name == "Tooltip0"
                                           select l)
                         {
                             l.Text = "+1 maximum minions and sentries";
                         }
 
                         foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Shield
+                                          where l.Name == "Tooltip1"
                                           select l)
                         {
                             l.Text = "10% increased minion damage\n2% increased melee damage\n4% increased melee critical strike chance\n5% increased movement speed\nIncreased health regeneration";
@@ -252,14 +245,14 @@ namespace niolsBuffedAccessories
 
                     case ItemID.ApprenticeScarf:
                         foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Scarf
+                                          where l.Name == "Tooltip0"
                                           select l)
                         {
                             l.Text = "+1 maximum minions and sentries";
                         }
 
                         foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Scarf
+                                          where l.Name == "Tooltip1"
                                           select l)
                         {
                             l.Text = "10% increased minion damage\n4% increased magic damage and critical strike chance\n3% reduced mana usage\n4% increased movement speed";
@@ -268,14 +261,14 @@ namespace niolsBuffedAccessories
 
                     case ItemID.HuntressBuckler:
                         foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip0" && ModContent.GetInstance<Config>().Buckler
+                                          where l.Name == "Tooltip0"
                                           select l)
                         {
                             l.Text = "+1 maximum minions and sentries";
                         }
 
                         foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Buckler
+                                          where l.Name == "Tooltip1"
                                           select l)
                         {
                             l.Text = "10% increased minion damage\n4% increased ranged damage\n4% ranged critical strike chance\n4% increased movement speed\n2% chance not to consume ammo";
@@ -283,20 +276,33 @@ namespace niolsBuffedAccessories
                         break;
 
                     case ItemID.MechanicalGlove:
-                        foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Glove
-                                          select l)
+                        foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip1" select l)
                         {
-                            l.Text += "\n12% increased melee damage, speed, and critical strike chance\n17% increased movement speed";
+                            l.Text += $"\n12% increased melee damage, speed, and critical strike chance\n17% increased movement speed" +
+                                $"{(ModContent.GetInstance<Config>().BeserkerRage ? "\nKilling an enemy enhances your melee abilities" : "")}";
                         }
                         break;
 
                     case ItemID.FireGauntlet:
-                        foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip1" && ModContent.GetInstance<Config>().Gauntlet
-                                          select l)
+                        foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip1" select l)
                         {
-                            l.Text += "\n15% increased melee damage, speed, and critical strike chance\n20% increased movement speed";
+                            l.Text += $"\n15% increased melee damage, speed, and critical strike chance\n20% increased movement speed" +
+                                $"{(ModContent.GetInstance<Config>().BeserkerRage ? "\nKilling an enemy enhances your melee abilities" : "")}";
+                        }
+                        break;
+
+                    case ItemID.ArcaneFlower:
+                        foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip0" select l)
+                        {
+                            l.Text += "\n10% increased magic damage\n5% increased magic crit chance";
+                        }
+                        break;
+
+
+                    case ItemID.StalkersQuiver:
+                        foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip0" select l)
+                        {
+                            l.Text += "\n10% increased arrow crit chance";
                         }
                         break;
                 }

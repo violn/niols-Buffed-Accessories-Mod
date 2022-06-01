@@ -16,7 +16,9 @@ namespace niolsBuffedAccessories
 
             if (MagicCounter > 12 && MagicStacksDelay > 120)
             {
-                MageEmblem.CurrentOnHitBoost -= MageEmblem.CurrentOnHitBoost - .01f < 0f ? MageEmblem.CurrentOnHitBoost : .01f;
+                MageEmblem.CurrentOnHitBoost -= MageEmblem.CurrentOnHitBoost - .01f < 0f ? 
+                    MageEmblem.CurrentOnHitBoost : .01f;
+
                 MageEmblem.CelestialRegen -= MageEmblem.CelestialRegen > 15 ? 1 : 0;
                 MagicCounter = 0;
             }

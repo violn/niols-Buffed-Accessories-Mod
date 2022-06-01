@@ -9,7 +9,7 @@ namespace niolsBuffedAccessories
     {
         public override bool Shoot(Item item, Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (AccessoryProperties.EquippedYoyoBag && YoyoProjectiles.YoyoProjectilesList.Contains(type))
+            if (AccessoryProperties.YoyoDupe && YoyoProjectiles.YoyoProjectilesList.Contains(type))
             {
                 SpawnProjectiles.CreateDuplicate(type, position, velocity.X, velocity.Y, damage, knockback, 2, player.GetSource_ItemUse(item));
             }

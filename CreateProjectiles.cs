@@ -11,7 +11,7 @@ namespace niolsBuffedAccessories.Buffed
     {
         private static readonly List<int> blacklistedProjectiles = new()
         {
-            ProjectileID.StarCannonStar,
+            ProjectileID.StarCloakStar,
             ProjectileID.GiantBee,
             ProjectileID.Bee,
             ProjectileID.SporeGas,
@@ -25,16 +25,16 @@ namespace niolsBuffedAccessories.Buffed
         {
             if (!blacklistedProjectiles.Contains(proj.type))
             {
-                if (AccessoryProperties.EquippedBee && ModContent.GetInstance<Config>().Bee && SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
+                if (AccessoryProperties.SpawmBees && SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
                 {
-                    if (AccessoryProperties.EquippedHive && BuffedAccessories.Ran.Next(2) == 0)
+                    if (AccessoryProperties.StrongBees && BuffedAccessories.Ran.Next(2) == 0)
                     {
                         SpawnProjectiles.CreateBees(target, damage, true, proj.GetSource_FromThis());
                     }
                     else SpawnProjectiles.CreateBees(target, damage, false, proj.GetSource_FromThis());
                 }
 
-                if (AccessoryProperties.EquippedStar && ModContent.GetInstance<Config>().Star && SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
+                if (AccessoryProperties.SpawnStars && SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
                 {
                     SpawnProjectiles.CreateStars(target, damage, proj.GetSource_FromThis());
                 }

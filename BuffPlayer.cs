@@ -8,7 +8,7 @@ namespace niolsBuffedAccessories
     {
         public override void OnHitPlayer(NPC npc, Player player, int damage, bool crit)
         {
-            if (AccessoryProperties.EquippedStar)
+            if (AccessoryProperties.SpawnStars)
             {
                 player.AddBuff(ModContent.BuffType<EnhancedManaRegen>(), 480);
             }
@@ -19,7 +19,7 @@ namespace niolsBuffedAccessories
     {
         public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
-            if (AccessoryProperties.EquippedWarriorEmblem && proj.DamageType == DamageClass.Melee && target.life < damage)
+            if (AccessoryProperties.BeserkerRage && proj.DamageType == DamageClass.Melee && target.life < damage)
             {
                 Player.AddBuff(ModContent.BuffType<BeserkerRage>(), 340);
             }
@@ -30,7 +30,7 @@ namespace niolsBuffedAccessories
     {
         public override void ModifyHitNPC(Item item, Player player, NPC target, ref int damage, ref float knockBack, ref bool crit)
         {
-            if (AccessoryProperties.EquippedWarriorEmblem && target.life < damage)
+            if (AccessoryProperties.BeserkerRage && target.life < damage)
             {
                 player.AddBuff(ModContent.BuffType<BeserkerRage>(), 340, true);
             }

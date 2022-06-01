@@ -51,7 +51,7 @@ Warrior Emblem:
 10% increased movement speed.
 Killing an enemy with a melee attack gives the Beserker Rage Buff.
 
-Mechincal Glove:
+Mechanical Glove:
 +12% increased melee critical strike chance.
 +17% increased movement speed.
 Enables autoswing for all melee weapons.
@@ -110,6 +110,13 @@ Gives a chance to prevent death.
 
 Pygmy Necklace :
 Removes enemy immunity frame created by summons.
+
+Stalker's Quiver:
+Arrows have a 10% increased crit chance
+
+Arcane Flower:
+10% increased magic damage
+5% increase magic crit chance
 
 Two Custom Buffs:
 

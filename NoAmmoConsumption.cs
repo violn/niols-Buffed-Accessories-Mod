@@ -8,8 +8,8 @@ namespace niolsBuffedAccessories.Buffed
         public override bool CanConsumeAmmo(Item weapon, Item ammo, Player player)
         {
             int chance = 0;
-            chance += AccessoryProperties.EquippedRangerEmblem ? 10 : 0;
-            chance += AccessoryProperties.EquippedBuckler ? 2 : 0;
+            chance += AccessoryProperties.RangedDupe ? 10 : 0;
+            chance += AccessoryProperties.EquippedHuntressBuckler ? 2 : 0;
 
             return BuffedAccessories.Ran.Next(100) > chance;
         }
