@@ -16,14 +16,12 @@ namespace niolsBuffedAccessories.Buffed
                 Timers.MagicCounter = 0;
                 float stacks_gained = Main.LocalPlayer.HeldItem.useTime / 2000f;
 
-                CurrentOnHitBoost = 
-                    stacks_gained + CurrentOnHitBoost > .2f ? 
+                CurrentOnHitBoost = stacks_gained + CurrentOnHitBoost > .2f ? 
                     .2f : stacks_gained + CurrentOnHitBoost;
 
                 damage = (int)(damage * (1f + CurrentOnHitBoost));
 
-                CelestialRegen = 
-                    AccessoryProperties.MagicStacking && CelestialRegen < 40 ? 
+                CelestialRegen = AccessoryProperties.MagicStacking && CelestialRegen < 40 ? 
                     (int)(CelestialRegen + CurrentOnHitBoost * 100) : CelestialRegen;
             }
         }

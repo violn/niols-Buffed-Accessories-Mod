@@ -12,7 +12,7 @@ namespace niolsBuffedAccessories
     {
         public override void ResetEffects()
         {
-            AccessoryProperties.SpawmBees = false;
+            AccessoryProperties.SpawnBees = false;
             AccessoryProperties.SpawnStars = false;
             AccessoryProperties.StrongBees = false;
             AccessoryProperties.RangedDupe = false;

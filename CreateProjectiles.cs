@@ -25,7 +25,7 @@ namespace niolsBuffedAccessories.Buffed
         {
             if (!blacklistedProjectiles.Contains(proj.type))
             {
-                if (AccessoryProperties.SpawmBees && SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
+                if (AccessoryProperties.SpawnBees && SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
                 {
                     if (AccessoryProperties.StrongBees && BuffedAccessories.Ran.Next(2) == 0)
                     {

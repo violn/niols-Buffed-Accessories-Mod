@@ -10,6 +10,7 @@ namespace niolsBuffedAccessories
     {
         public static int BeesSpawned = 0;
         public static int StarsSpawned = 0;
+
         public static void CreateBees(NPC target, int damage, bool strong, IEntitySource source)
         {
             if (BeesSpawned <= 25)

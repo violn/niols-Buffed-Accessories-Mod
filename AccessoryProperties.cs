@@ -8,7 +8,7 @@ namespace niolsBuffedAccessories
 {
     public class AccessoryProperties : GlobalItem
     {
-        public static bool SpawmBees = false;
+        public static bool SpawnBees = false;
         public static bool SpawnStars = false;
         public static bool StrongBees = false;
         public static bool RangedDupe = false;
@@ -31,27 +31,27 @@ namespace niolsBuffedAccessories
                 switch (item.type)
                 {
                     case ItemID.HoneyComb:
-                        SpawmBees = ModContent.GetInstance<Config>().SpawnBees;
+                        SpawnBees = ModContent.GetInstance<Config>().SpawnBees;
                         break;
 
                     case ItemID.HoneyBalloon:
-                        SpawmBees = ModContent.GetInstance<Config>().SpawnBees;
+                        SpawnBees = ModContent.GetInstance<Config>().SpawnBees;
                         break;
 
                     case ItemID.BalloonHorseshoeHoney:
-                        SpawmBees = ModContent.GetInstance<Config>().SpawnBees;
+                        SpawnBees = ModContent.GetInstance<Config>().SpawnBees;
                         break;
 
                     case ItemID.StingerNecklace:
-                        SpawmBees = ModContent.GetInstance<Config>().SpawnBees;
+                        SpawnBees = ModContent.GetInstance<Config>().SpawnBees;
                         break;
 
                     case ItemID.SweetheartNecklace:
-                        SpawmBees = ModContent.GetInstance<Config>().SpawnBees;
+                        SpawnBees = ModContent.GetInstance<Config>().SpawnBees;
                         break;
 
                     case ItemID.BeeCloak:
-                        SpawmBees = ModContent.GetInstance<Config>().SpawnBees;
+                        SpawnBees = ModContent.GetInstance<Config>().SpawnBees;
                         SpawnStars = ModContent.GetInstance<Config>().SpawnStars;
                         break;
 

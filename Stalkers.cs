@@ -1,7 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using niolsBuffedAccessories.Configs;
-using Terraria;
-using Terraria.DataStructures;
+﻿using Terraria;
 using Terraria.ModLoader;
 
 namespace niolsBuffedAccessories
@@ -10,7 +7,7 @@ namespace niolsBuffedAccessories
     {
         public override bool? CanHitNPC(Projectile projectile, NPC target)
         {
-            projectile.CritChance = projectile.owner == Main.myPlayer && projectile.arrow && AccessoryProperties.EquippedStalkersQuiver ? 
+            projectile.CritChance = projectile.owner == Main.myPlayer && projectile.arrow && AccessoryProperties.EquippedStalkersQuiver ?
                 (int)(1.1 * projectile.CritChance) : projectile.CritChance;
 
             return base.CanHitNPC(projectile, target);

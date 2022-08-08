@@ -8,7 +8,7 @@ namespace niolsBuffedAccessories.Buffed
     {
         public override void ModifyHitNPC(Item item, Player player, NPC target, ref int damage, ref float knockBack, ref bool crit)
         {
-            if (AccessoryProperties.SpawmBees && CreateProjectiles.SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
+            if (AccessoryProperties.SpawnBees && CreateProjectiles.SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
             {
                 if (AccessoryProperties.StrongBees && BuffedAccessories.Ran.Next(100) < 50)
                 {
