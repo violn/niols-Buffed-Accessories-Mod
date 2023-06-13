@@ -24,7 +24,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0"
                                           select l)
                         {
-                            l.Text += ModContent.GetInstance<Config>().SpawnBees ? "\nAttacks have a chance to spawn bees" : "";
+                            l.Text += ModContent.GetInstance<Config>().SpawnBees ? "\nAttacks have a chance to spawn bees when hitting an enemy" : "";
                         }
                         break;
 
@@ -33,7 +33,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip1"
                                           select l)
                         {
-                            l.Text += ModContent.GetInstance<Config>().SpawnBees ? "\nAttacks have a chance to spawn bees" : "";
+                            l.Text += ModContent.GetInstance<Config>().SpawnBees ? "\nAttacks have a chance to spawn bees when hitting an enemy" : "";
                         }
                         break;
 
@@ -42,7 +42,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip1"
                                           select l)
                         {
-                            l.Text += ModContent.GetInstance<Config>().SpawnBees ? "\nAttacks have a chance to spawn bees" : "";
+                            l.Text += ModContent.GetInstance<Config>().SpawnBees ? "\nAttacks have a chance to spawn bees when hitting an enemy" : "";
                         }
                         break;
 
@@ -51,7 +51,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip1"
                                           select l)
                         {
-                            l.Text += ModContent.GetInstance<Config>().SpawnBees ? "\nAttacks have a chance to spawn bees" : "";
+                            l.Text += ModContent.GetInstance<Config>().SpawnBees ? "\nAttacks have a chance to spawn bees when hitting an enemy" : "";
                         }
                         break;
 
@@ -60,7 +60,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0"
                                           select l)
                         {
-                            l.Text += ModContent.GetInstance<Config>().SpawnBees ? "\nAttacks have a chance to spawn bees" : "";
+                            l.Text += ModContent.GetInstance<Config>().SpawnBees ? "\nAttacks have a chance to spawn bees when hitting an enemy" : "";
                         }
                         break;
 
@@ -69,7 +69,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0"
                                           select l)
                         {
-                            l.Text += (ModContent.GetInstance<Config>().SpawnBees ? "\nAttacks have a chance to spawn bees" : "") + 
+                            l.Text += (ModContent.GetInstance<Config>().SpawnBees ? "\nAttacks have a chance to spawn bees when hitting an enemy" : "") + 
                                 (ModContent.GetInstance<Config>().SpawnStars ? "\nAttacks have a chance to spawn stars from the sky" : "");
                         }
                         break;
@@ -79,7 +79,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0"
                                           select l)
                         {
-                            l.Text += ModContent.GetInstance<Config>().SpawnStars ? "\nAttacks have a chance to spawn stars from the sky" : "";
+                            l.Text += ModContent.GetInstance<Config>().SpawnStars ? "\nAttacks have a chance to spawn stars from the sky when hitting an enemy" : "";
                         }
                         break;
 
@@ -88,7 +88,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0"
                                           select l)
                         {
-                            l.Text += ModContent.GetInstance<Config>().SpawnStars ? "\nAttacks have a chance to spawn stars from the sky" : "";
+                            l.Text += ModContent.GetInstance<Config>().SpawnStars ? "\nAttacks have a chance to spawn stars from the sky when hitting an enemy" : "";
                         }
                         break;
 
@@ -97,7 +97,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0"
                                           select l)
                         {
-                            l.Text += (ModContent.GetInstance<Config>().SpawnStars ? "\nAttacks have a chance to spawn stars from the sky" : "") + 
+                            l.Text += (ModContent.GetInstance<Config>().SpawnStars ? "\nAttacks have a chance to spawn stars from the sky when hitting an enemy" : "") + 
                                 (ModContent.GetInstance<Config>().DeathPrevention ? "\nGain a chance to prevent death" : "");
                         }
                         break;
@@ -171,14 +171,14 @@ namespace niolsBuffedAccessories
                     case ItemID.MagicCuffs:
                         foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip1" select l)
                         {
-                            l.Text += "\nIncreased mana regeneration\n3 magic damage";
+                            l.Text += "\nIncreased mana regeneration\n+3 magic damage";
                         }
                         break;
 
                     case ItemID.CelestialCuffs:
                         foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip2" select l)
                         {
-                            l.Text += "\nIncreased mana regeneration\n5 magic damage";
+                            l.Text += "\nIncreased mana regeneration\n+5 magic damage";
                         }
                         break;
 
@@ -186,7 +186,7 @@ namespace niolsBuffedAccessories
                         foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip0" select l)
                         {
                             l.Text += $"\n8% increased melee critical strike chance\n10% increased movement speed" +
-                                $"{(ModContent.GetInstance<Config>().BeserkerRage ? "\nKilling an enemy enhances your melee abilities" : "")}";
+                                $"{(ModContent.GetInstance<Config>().BeserkerRage ? "\nKilling an enemy with a melee attack enhances your melee abilities" : "")}";
                         }
                         break;
 
@@ -200,7 +200,7 @@ namespace niolsBuffedAccessories
                     case ItemID.Shackle:
                         foreach (var l in from TooltipLine l in tooltips where l.Name == "Defense" select l)
                         {
-                            l.Text += "\n1 damage";
+                            l.Text += "\n+1 damage";
                         }
                         break;
 
@@ -279,7 +279,7 @@ namespace niolsBuffedAccessories
                         foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip1" select l)
                         {
                             l.Text += $"\n12% increased melee damage, speed, and critical strike chance\n17% increased movement speed" +
-                                $"{(ModContent.GetInstance<Config>().BeserkerRage ? "\nKilling an enemy enhances your melee abilities" : "")}";
+                                $"{(ModContent.GetInstance<Config>().BeserkerRage ? "\nKilling an enemy with a melee attack enhances your melee abilities" : "")}";
                         }
                         break;
 
@@ -287,7 +287,7 @@ namespace niolsBuffedAccessories
                         foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip1" select l)
                         {
                             l.Text += $"\n15% increased melee damage, speed, and critical strike chance\n20% increased movement speed" +
-                                $"{(ModContent.GetInstance<Config>().BeserkerRage ? "\nKilling an enemy enhances your melee abilities" : "")}";
+                                $"{(ModContent.GetInstance<Config>().BeserkerRage ? "\nKilling an enemy with a melee attack enhances your melee abilities" : "")}";
                         }
                         break;
 

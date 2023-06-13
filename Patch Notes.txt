@@ -1,1 +1,1 @@
-﻿Updtaed to the latest TmodLoader version.
+﻿Updated some tooltips.
