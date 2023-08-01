@@ -18,11 +18,12 @@ namespace niolsBuffedAccessories
         public static bool YoyoDupe = false;
         public static bool DeathPrevention = false;
         public static bool SummonImmunity = false;
-        public static bool EquippedStalkersQuiver = false;
-        public static bool EquippedMagicCuffs = false;
-        public static bool EquippedCelestialCuffs = false;
-        public static bool EquippedShackle = false;
-        public static bool EquippedHuntressBuckler = false;
+        public static bool Stalker = false;
+        public static bool Cuffs = false;
+        public static bool Celestial = false;
+        public static bool Shackle = false;
+        public static bool Huntress = false;
+        public static bool Band = false;
 
         public override void UpdateAccessory(Item item, Player player, bool hideVisual)
         {
@@ -30,6 +31,14 @@ namespace niolsBuffedAccessories
             {
                 switch (item.type)
                 {
+                    case ItemID.BandofStarpower:
+                        Band = ModContent.GetInstance<Config>().Band;
+                        break;
+
+                    case ItemID.ManaRegenerationBand:
+                        Band = ModContent.GetInstance<Config>().Band;
+                        break;
+
                     case ItemID.HoneyComb:
                         SpawnBees = ModContent.GetInstance<Config>().SpawnBees;
                         break;
@@ -116,11 +125,13 @@ namespace niolsBuffedAccessories
                         break;
 
                     case ItemID.MagicCuffs:
-                        EquippedMagicCuffs = true;
+                        Cuffs = true;
+                        Band = ModContent.GetInstance<Config>().Band;
                         break;
 
                     case ItemID.CelestialCuffs:
-                        EquippedCelestialCuffs = true;
+                        Celestial = true;
+                        Band = ModContent.GetInstance<Config>().Band;
                         break;
 
                     case ItemID.SummonerEmblem:
@@ -173,7 +184,7 @@ namespace niolsBuffedAccessories
                         player.GetDamage(DamageClass.Ranged) += .04f;
                         player.GetDamage(DamageClass.Summon) += .05f;
                         player.GetCritChance(DamageClass.Ranged) += 4;
-                        EquippedHuntressBuckler = true;
+                        Huntress = true;
                         break;
 
                     case ItemID.MechanicalGlove:
@@ -197,7 +208,7 @@ namespace niolsBuffedAccessories
                         break;
 
                     case ItemID.Shackle:
-                        EquippedShackle = true;
+                        Shackle = true;
                         break;
 
                     case ItemID.YoyoBag:
@@ -210,7 +221,7 @@ namespace niolsBuffedAccessories
                         break;
 
                     case ItemID.StalkersQuiver:
-                        EquippedStalkersQuiver = true;
+                        Stalker = true;
                         break;
                 }
             }

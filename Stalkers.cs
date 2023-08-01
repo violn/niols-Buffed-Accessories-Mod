@@ -7,7 +7,7 @@ namespace niolsBuffedAccessories
     {
         public override bool? CanHitNPC(Projectile projectile, NPC target)
         {
-            projectile.CritChance = projectile.owner == Main.myPlayer && projectile.arrow && AccessoryProperties.EquippedStalkersQuiver ?
+            projectile.CritChance = projectile.owner == Main.myPlayer && projectile.arrow && AccessoryProperties.Stalker ?
                 (int)(1.1 * projectile.CritChance) : projectile.CritChance;
 
             return base.CanHitNPC(projectile, target);

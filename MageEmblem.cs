@@ -8,7 +8,7 @@ namespace niolsBuffedAccessories.Buffed
         public static int CelestialRegen = 15;
         public static float CurrentOnHitBoost = 0f;
 
-        public override void ModifyHitNPC(Projectile projectile, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void ModifyHitNPC(Projectile projectile, NPC target, ref NPC.HitModifiers modifiers)
         {
             if (projectile.DamageType == DamageClass.Magic && AccessoryProperties.MagicStacking)
             {
@@ -16,12 +16,12 @@ namespace niolsBuffedAccessories.Buffed
                 Timers.MagicCounter = 0;
                 float stacks_gained = Main.LocalPlayer.HeldItem.useTime / 2000f;
 
-                CurrentOnHitBoost = stacks_gained + CurrentOnHitBoost > .2f ? 
+                CurrentOnHitBoost = stacks_gained + CurrentOnHitBoost > .2f ?
                     .2f : stacks_gained + CurrentOnHitBoost;
 
-                damage = (int)(damage * (1f + CurrentOnHitBoost));
+                modifiers.SourceDamage *= (int)(1f + CurrentOnHitBoost);
 
-                CelestialRegen = AccessoryProperties.MagicStacking && CelestialRegen < 40 ? 
+                CelestialRegen = AccessoryProperties.MagicStacking && CelestialRegen < 40 ?
                     (int)(CelestialRegen + CurrentOnHitBoost * 100) : CelestialRegen;
             }
         }

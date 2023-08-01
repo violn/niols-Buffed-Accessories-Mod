@@ -1,1 +1,2 @@
-﻿Updated some tooltips.
+﻿Moved enhanced mana regeneration to band of starpower
+Updated to Terraria 1.4.4

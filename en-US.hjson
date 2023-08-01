@@ -1,0 +1,81 @@
+Mods: {
+	niolsBuffedAccessories: {
+		Buffs: {
+			BeserkerRage: {
+				DisplayName: Beserker Rage
+				Description: You have increased melee damage and crit chance
+			}
+
+			EnhancedManaRegen: {
+				DisplayName: Enhanced Mana Regen
+				Description: You're quickly regenerating mana
+			}
+		}
+
+		Configs: {
+			Config: {
+				DisplayName: Config
+
+				AllBuffs: {
+					Label: All Buffs
+					Tooltip: Toggles buffs to accessories
+				}
+
+				SpawnBees: {
+					Label: Spawn Bees
+					Tooltip: Toggles bee spawning items
+				}
+
+				SpawnStars: {
+					Label: Spawn Stars
+					Tooltip: Toggles star spawning items
+				}
+
+				StrongBee: {
+					Label: Strong Bee
+					Tooltip: Toggles strong bee spawning items
+				}
+
+				RangedDupe: {
+					Label: Ranged Dupe
+					Tooltip: Toggles ranged projectile duplication items
+				}
+
+				ScopeIncrease: {
+					Label: Scope Increase
+					Tooltip: Toggles damage increasing based on distance items
+				}
+
+				MagicStacking: {
+					Label: Magic Stacking
+					Tooltip: Toggles items that give magic stacks
+				}
+
+				ExtraYoyo: {
+					Label: Extra Yoyo
+					Tooltip: Toggles items that spawn an extra yoyo prjectile
+				}
+
+				DeathPrevention: {
+					Label: Death Prevention
+					Tooltip: Toggles items that prevent death
+				}
+
+				SummonImmunity: {
+					Label: Summon Immunity
+					Tooltip: Toggles items that remove the summon iframes
+				}
+
+				BeserkerRage: {
+					Label: Beserker Rage
+					Tooltip: Toggles the Berserker Rage buff
+				}
+
+				Band: {
+					Label: Band
+					Tooltip: Toggles the Enhance Mana Regeneration buff
+				}
+			}
+		}
+	}
+}

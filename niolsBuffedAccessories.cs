@@ -22,11 +22,12 @@ namespace niolsBuffedAccessories
             AccessoryProperties.YoyoDupe = false;
             AccessoryProperties.DeathPrevention = false;
             AccessoryProperties.SummonImmunity = false;
-            AccessoryProperties.EquippedStalkersQuiver = false;
-            AccessoryProperties.EquippedMagicCuffs = false;
-            AccessoryProperties.EquippedCelestialCuffs = false;
-            AccessoryProperties.EquippedShackle = false;
-            AccessoryProperties.EquippedHuntressBuckler = false;
+            AccessoryProperties.Stalker = false;
+            AccessoryProperties.Cuffs = false;
+            AccessoryProperties.Celestial = false;
+            AccessoryProperties.Shackle = false;
+            AccessoryProperties.Huntress = false;
+            AccessoryProperties.Band = false;
         }
     }
 }

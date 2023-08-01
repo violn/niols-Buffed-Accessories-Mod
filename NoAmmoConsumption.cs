@@ -9,7 +9,7 @@ namespace niolsBuffedAccessories.Buffed
         {
             int chance = 0;
             chance += AccessoryProperties.RangedDupe ? 10 : 0;
-            chance += AccessoryProperties.EquippedHuntressBuckler ? 2 : 0;
+            chance += AccessoryProperties.Huntress ? 2 : 0;
 
             return BuffedAccessories.Ran.Next(100) > chance;
         }

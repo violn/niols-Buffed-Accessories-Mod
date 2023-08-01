@@ -1,5 +1,4 @@
-﻿using niolsBuffedAccessories.Configs;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -21,34 +20,31 @@ namespace niolsBuffedAccessories.Buffed
             ProjectileID.SporeTrap2,
         };
 
-        public override void ModifyHitNPC(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void ModifyHitNPC(Projectile projectile, NPC target, ref NPC.HitModifiers modifiers)
         {
-            if (!blacklistedProjectiles.Contains(proj.type))
+            if (!blacklistedProjectiles.Contains(projectile.type))
             {
                 if (AccessoryProperties.SpawnBees && SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
                 {
                     if (AccessoryProperties.StrongBees && BuffedAccessories.Ran.Next(2) == 0)
                     {
-                        SpawnProjectiles.CreateBees(target, damage, true, proj.GetSource_FromThis());
+                        SpawnProjectiles.CreateBees(target, projectile.damage, true, projectile.GetSource_FromThis());
                     }
-                    else SpawnProjectiles.CreateBees(target, damage, false, proj.GetSource_FromThis());
+                    else SpawnProjectiles.CreateBees(target, projectile.damage, false, projectile.GetSource_FromThis());
                 }
 
                 if (AccessoryProperties.SpawnStars && SpawnProjectile(Main.LocalPlayer.HeldItem.useTime))
                 {
-                    SpawnProjectiles.CreateStars(target, damage, proj.GetSource_FromThis());
+                    SpawnProjectiles.CreateStars(target, projectile.damage, projectile.GetSource_FromThis());
                 }
             }
         }
 
         public static bool SpawnProjectile(int time)
         {
-            if (time > 25)
-            {
-                return BuffedAccessories.Ran.Next(101) < Math.Pow(time, 2f) / 25f;
-            }
-
-            return BuffedAccessories.Ran.Next(101) < time;
+            return time > 25 ?
+                BuffedAccessories.Ran.Next(101) < Math.Pow(time, 2f) / 25f :
+                BuffedAccessories.Ran.Next(101) < time;
         }
     }
 }

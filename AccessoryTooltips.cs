@@ -69,7 +69,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0"
                                           select l)
                         {
-                            l.Text += (ModContent.GetInstance<Config>().SpawnBees ? "\nAttacks have a chance to spawn bees when hitting an enemy" : "") + 
+                            l.Text += (ModContent.GetInstance<Config>().SpawnBees ? "\nAttacks have a chance to spawn bees when hitting an enemy" : "") +
                                 (ModContent.GetInstance<Config>().SpawnStars ? "\nAttacks have a chance to spawn stars from the sky" : "");
                         }
                         break;
@@ -97,7 +97,7 @@ namespace niolsBuffedAccessories
                                           where l.Name == "Tooltip0"
                                           select l)
                         {
-                            l.Text += (ModContent.GetInstance<Config>().SpawnStars ? "\nAttacks have a chance to spawn stars from the sky when hitting an enemy" : "") + 
+                            l.Text += (ModContent.GetInstance<Config>().SpawnStars ? "\nAttacks have a chance to spawn stars from the sky when hitting an enemy" : "") +
                                 (ModContent.GetInstance<Config>().DeathPrevention ? "\nGain a chance to prevent death" : "");
                         }
                         break;
@@ -168,17 +168,31 @@ namespace niolsBuffedAccessories
                         }
                         break;
 
+                    case ItemID.BandofStarpower:
+                        foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip0" select l)
+                        {
+                            l.Text += "\nEnhances mana regeneration when hit";
+                        }
+                        break;
+
+                    case ItemID.ManaRegenerationBand:
+                        foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip1" select l)
+                        {
+                            l.Text += "\nEnhances mana regeneration when hit";
+                        }
+                        break;
+
                     case ItemID.MagicCuffs:
                         foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip1" select l)
                         {
-                            l.Text += "\nIncreased mana regeneration\n+3 magic damage";
+                            l.Text += "\nIncreased mana regeneration\n+3 magic damage\nEnhances mana regeneration when hit";
                         }
                         break;
 
                     case ItemID.CelestialCuffs:
                         foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip2" select l)
                         {
-                            l.Text += "\nIncreased mana regeneration\n+5 magic damage";
+                            l.Text += "\nIncreased mana regeneration\n+5 magic damage\nEnhances mana regeneration when hit";
                         }
                         break;
 

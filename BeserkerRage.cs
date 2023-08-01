@@ -8,8 +8,6 @@ namespace niolsBuffedAccessories.Buffs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Beserker Rage");
-            Description.SetDefault("Your melee abilities are increased.");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = false;
             BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;

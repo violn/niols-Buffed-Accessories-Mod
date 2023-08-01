@@ -119,10 +119,10 @@ Arcane Flower:
 Two Custom Buffs:
 
 Enhanced Mana Regeneration: 
-When holding the star cloak or equivalent getting hit will hugely enhanced your mana regeneration.
+When a Band of Starpower related accessory is equipped getting hit will hugely enhanced your mana regeneration.
 
 Berserker Rage: 
-When melee emblem or equivalent is equipped killing an enemy will greatly enhance you melee capabilties.
+When a Melee Emblem Related accessory is equipped killing an enemy will greatly enhance you melee capabilties.
 
 Notes:
 If you have any issues with this mod be sure to comment below I'm usually quick to respond.

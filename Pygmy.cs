@@ -8,18 +8,18 @@ namespace niolsBuffedAccessories.Buffed
     {
         public static List<Projectile> modifiedProjectiles = new();
 
-        public override void OnHitNPC(Projectile proj, NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(Projectile projectile, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            if ((proj.sentry || proj.minion) && AccessoryProperties.SummonImmunity && !proj.usesLocalNPCImmunity)
+            if ((projectile.sentry || projectile.minion) && AccessoryProperties.SummonImmunity && !projectile.usesLocalNPCImmunity)
             {
-                proj.usesLocalNPCImmunity = true;
-                modifiedProjectiles.Add(proj);
+                projectile.usesLocalNPCImmunity = true;
+                modifiedProjectiles.Add(projectile);
             }
 
-            else if (modifiedProjectiles.Contains(proj))
+            else if (modifiedProjectiles.Contains(projectile))
             {
-                proj.usesLocalNPCImmunity = false;
-                modifiedProjectiles.Remove(proj);
+                projectile.usesLocalNPCImmunity = false;
+                modifiedProjectiles.Remove(projectile);
             }
         }
     }

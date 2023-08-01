@@ -7,8 +7,6 @@ namespace niolsBuffedAccessories.Buffs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Enhanced Mana Regeneration");
-            Description.SetDefault("You're quickly regenerating mana.");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = false;
         }
