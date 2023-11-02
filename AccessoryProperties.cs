@@ -158,7 +158,6 @@ namespace niolsBuffedAccessories
                         break;
 
                     case ItemID.ApprenticeScarf:
-                        player.maxMinions += 1;
                         player.manaCost *= .97f;
                         player.maxRunSpeed += 0.27f;
                         player.moveSpeed += .04f;
@@ -168,9 +167,8 @@ namespace niolsBuffedAccessories
                         break;
 
                     case ItemID.SquireShield:
-                        player.maxMinions += 1;
                         player.maxRunSpeed += 0.27f;
-                        player.moveSpeed += .5f;
+                        player.moveSpeed += .05f;
                         player.lifeRegen += 1;
                         player.GetDamage(DamageClass.Melee) += .02f;
                         player.GetDamage(DamageClass.Summon) += .05f;

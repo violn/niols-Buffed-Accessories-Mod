@@ -1,2 +1,2 @@
-﻿Moved enhanced mana regeneration to band of starpower
-Updated to Terraria 1.4.4
+﻿Fixed a bug with the Squire's Shield with it increasing move speed by 50% instead of 5%.
+Removed the +1 minions from the Squire's Shield and Apprentice Scarf due to them being now obtainable in prehard mode.

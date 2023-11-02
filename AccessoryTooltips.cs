@@ -243,13 +243,6 @@ namespace niolsBuffedAccessories
 
                     case ItemID.SquireShield:
                         foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip0"
-                                          select l)
-                        {
-                            l.Text = "+1 maximum minions and sentries";
-                        }
-
-                        foreach (var l in from TooltipLine l in tooltips
                                           where l.Name == "Tooltip1"
                                           select l)
                         {
@@ -258,13 +251,6 @@ namespace niolsBuffedAccessories
                         break;
 
                     case ItemID.ApprenticeScarf:
-                        foreach (var l in from TooltipLine l in tooltips
-                                          where l.Name == "Tooltip0"
-                                          select l)
-                        {
-                            l.Text = "+1 maximum minions and sentries";
-                        }
-
                         foreach (var l in from TooltipLine l in tooltips
                                           where l.Name == "Tooltip1"
                                           select l)
