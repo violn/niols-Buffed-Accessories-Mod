@@ -63,13 +63,12 @@ Fire Gauntlet:
 Killing an enemy with a melee attack gives the Beserker Rage Buff.
 
 Summoner Emblem:
-+2 maximum minions and sentries.
++1 maximum minions and sentries.
 
 Yoyo Bag:
 Increased number of yoyos spawned to three.
 
 Apprentice's Scarf:
-+1 maximum minions and sentries.
 4% increased magic damage.
 10% increased minion damage.
 4% increased magic critical strike chance.
@@ -93,7 +92,6 @@ Monk's Belt:
 5% increased movement speed
 
 Squire's Shield:
-+1 minions
 2% increased melee damage
 4% increased melee critical strike chance
 10% increased minion damage

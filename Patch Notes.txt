@@ -1,2 +1,4 @@
-﻿Fixed a bug with the Squire's Shield with it increasing move speed by 50% instead of 5%.
-Removed the +1 minions from the Squire's Shield and Apprentice Scarf due to them being now obtainable in prehard mode.
+﻿Fixed description.
+Fixed celestial and sorcerer emblem stacks not applying.
+Fixed item tooltip for both the mechanical glove and fire gauntlet.
+Reduced minion and sentry bonus on the summoner emblem to just one.

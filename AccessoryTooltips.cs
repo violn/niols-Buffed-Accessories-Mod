@@ -221,7 +221,7 @@ namespace niolsBuffedAccessories
                     case ItemID.SummonerEmblem:
                         foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip0" select l)
                         {
-                            l.Text += "\n+2 maximum minions and sentries";
+                            l.Text += "\n+1 maximum minions and sentries";
                         }
                         break;
 
@@ -278,7 +278,7 @@ namespace niolsBuffedAccessories
                     case ItemID.MechanicalGlove:
                         foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip1" select l)
                         {
-                            l.Text += $"\n12% increased melee damage, speed, and critical strike chance\n17% increased movement speed" +
+                            l.Text = $"12% increased melee damage, speed, and critical strike chance\n17% increased movement speed" +
                                 $"{(ModContent.GetInstance<Config>().BeserkerRage ? "\nKilling an enemy with a melee attack enhances your melee abilities" : "")}";
                         }
                         break;
@@ -286,7 +286,7 @@ namespace niolsBuffedAccessories
                     case ItemID.FireGauntlet:
                         foreach (var l in from TooltipLine l in tooltips where l.Name == "Tooltip1" select l)
                         {
-                            l.Text += $"\n15% increased melee damage, speed, and critical strike chance\n20% increased movement speed" +
+                            l.Text = $"15% increased melee damage, speed, and critical strike chance\n20% increased movement speed" +
                                 $"{(ModContent.GetInstance<Config>().BeserkerRage ? "\nKilling an enemy with a melee attack enhances your melee abilities" : "")}";
                         }
                         break;

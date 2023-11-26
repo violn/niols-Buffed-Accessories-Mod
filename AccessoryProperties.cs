@@ -136,8 +136,8 @@ namespace niolsBuffedAccessories
 
                     case ItemID.SummonerEmblem:
 
-                        player.maxMinions += 2;
-                        player.maxTurrets += 2;
+                        player.maxMinions += 1;
+                        player.maxTurrets += 1;
                         break;
 
                     case ItemID.WarriorEmblem:

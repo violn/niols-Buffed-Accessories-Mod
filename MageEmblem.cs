@@ -19,7 +19,7 @@ namespace niolsBuffedAccessories.Buffed
                 CurrentOnHitBoost = stacks_gained + CurrentOnHitBoost > .2f ?
                     .2f : stacks_gained + CurrentOnHitBoost;
 
-                modifiers.SourceDamage *= (int)(1f + CurrentOnHitBoost);
+                modifiers.SourceDamage += CurrentOnHitBoost;
 
                 CelestialRegen = AccessoryProperties.MagicStacking && CelestialRegen < 40 ?
                     (int)(CelestialRegen + CurrentOnHitBoost * 100) : CelestialRegen;
